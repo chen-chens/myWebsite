@@ -1,10 +1,11 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-# array 方法
+# 影片等比縮放
 
-## array
+## 目錄：
+
 
 
 Create a file at `blog/2021-02-28-greetings.md`:

@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# [TS] interface
+# interface
 
 ## interface
 

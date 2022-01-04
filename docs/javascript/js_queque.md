@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# array 方法
+# JS Event Queque
 
 ## array
 

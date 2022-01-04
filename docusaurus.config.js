@@ -14,7 +14,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'chen-chens', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  projectName: 'myWebsite', // Usually your repo name.
 
   presets: [
     [
@@ -50,27 +50,22 @@ const config = {
         },
         items: [
           {
-            label: 'TechDocs',
+            // label: 'TechDocs',
+            label: '技術筆記',
             type: 'doc',
-            docId: 'intro',
+            docId: 'emmet',
             position: 'left',
           },
           {
-            label: 'MyGoal',
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
+            label: '閱讀筆記',
+            to: '/blog',  
+            position: 'left'
           },
           {
-            label: 'Components',
-            to: '/components', 
-            position: 'left',
+            label: '專案作品',
+            to: '/blog',  
+            position: 'left'
           },
-          // {
-          //   label: 'Blog',
-          //   to: '/blog',  
-          //   position: 'left'
-          // },
           {
             label: 'Email',
             href: 'https://www.linkedin.com/in/huei-jen-chen',
@@ -109,10 +104,6 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Linkedin',
-                href: 'https://www.linkedin.com/in/huei-jen-chen',
-              },
-              {
                 label: 'GitHub',
                 href: 'https://github.com/facebook/docusaurus',
               },
@@ -125,10 +116,14 @@ const config = {
                 label: 'Email',
                 href: 'https://www.linkedin.com/in/huei-jen-chen',
               },
+              {
+                label: 'Linkedin',
+                href: 'https://www.linkedin.com/in/huei-jen-chen',
+              },
             ],
           },
         ],
-        copyright: `Welcome to my room of requirement in ${new Date().getFullYear()}.`,
+        copyright: "© 2022 by CHEN HUEI-JEN",
       },
       prism: {
         theme: lightCodeTheme,

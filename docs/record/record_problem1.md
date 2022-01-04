@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# array 方法
+# 實戰問題
 
-## array
+## interface
 
 
 Create a file at `blog/2021-02-28-greetings.md`:

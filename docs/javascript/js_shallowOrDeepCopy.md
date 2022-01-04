@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-# array 方法
+# Shallow copy v.s. Deep Copy
 
 ## array
 

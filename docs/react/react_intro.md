@@ -2,10 +2,16 @@
 sidebar_position: 1
 ---
 
-# array 方法
+# Intro
 
-## array
+## 為了解決什麼問題？
 
+## 概念 
+- 虛擬 tree
+- 渲染次數
+- props
+
+## 筆記地圖
 
 Create a file at `blog/2021-02-28-greetings.md`:
 
