@@ -63,7 +63,7 @@ const config = {
           },
           {
             label: '專案作品',
-            to: '/blog',  
+            to: '/projects',  
             position: 'left'
           },
           {
