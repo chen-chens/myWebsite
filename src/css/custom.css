@@ -14,6 +14,7 @@
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
+  --basic-gap: 10px;
 }
 
 .docusaurus-highlight-code-line {
@@ -25,4 +26,91 @@
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+ul{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+li{
+  list-style: none;
+}
+ul, li{
+  margin: 0;
+  padding: 0;
+}
+
+
+.iconExternalLink_node_modules-\@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module {
+  display: none;
+}
+
+.navbar__items > .profolio {
+  /* display: block;
+  background-color: var(--ifm-color-primary);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff; */
+}
+
+.footer__items {
+  display: flex;
+  justify-content: center;
+}
+.footer__item {
+  margin: 0 10px;
+}
+.footer__item a {
+  display: block;
+}
+
+
+/* projects */
+.projects {
+  /* outline: 1px solid red; */
+}
+.projects .primaryTile {
+  text-align: center;
+  padding: 15px;
+}
+
+.projects .container {
+  margin: auto;
+  outline: 1px solid red;
+}
+
+.projects .content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.projects .item {
+  border: 2px solid gray;
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+.projects .item img{
+  display: block;
+  width: 100%;
+}
+.projects .item .txt{
+  padding: 10px;
+}
+.projects .operation{
+  display: flex;
+}
+.projects .operation button{
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  margin: var(--basic-gap);
+  flex-grow: 1;
 }

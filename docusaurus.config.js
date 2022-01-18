@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'CHEN HUEI-JEN',
+  title: 'Chen Huei Jen',
   tagline: 'Front-End Developer',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
@@ -67,13 +67,14 @@ const config = {
             position: 'left'
           },
           {
-            label: 'Email',
-            href: 'https://www.linkedin.com/in/huei-jen-chen',
+            label: 'Profolio',
+            class: 'profolio',
+            to: '/profolio',
             position: 'right',
           },
           {
-            label: 'Profolio',
-            href: 'https://www.linkedin.com/in/huei-jen-chen',
+            label: 'Email',
+            href: 'https://mail.google.com',
             position: 'right',
           },
           {
@@ -92,38 +93,32 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'About me',
             items: [
               {
-                label: 'Profolio',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'Contact me',
-            items: [
-              {
-                label: 'Email',
-                href: 'https://www.linkedin.com/in/huei-jen-chen',
+                html: `
+                    <a href="https://www.linkedin.com/in/huei-jen-chen" target="_blank" rel="noreferrer noopener">
+                      <img src=${'img/linkedin.svg'} alt="Linkedin" width="35px"/>
+                    </a>
+                  `,
               },
               {
-                label: 'Linkedin',
-                href: 'https://www.linkedin.com/in/huei-jen-chen',
+                html: `
+                    <a href="https://github.com/facebook/docusaurus" target="_blank" rel="noreferrer noopener">
+                      <img src=${'img/github.svg'} alt="Github" width="35px"/>
+                    </a>
+                  `,
+              },
+              {
+                html: `
+                    <a href="https://mail.google.com" target="_blank" rel="noreferrer noopener">
+                      <img src=${'img/email.svg'} alt="Email" width="35px"/>
+                    </a>
+                  `,
               },
             ],
           },
         ],
-        copyright: "© 2022 by CHEN HUEI-JEN",
+        copyright: `Copyright © ${new Date().getFullYear()} Chen Huei Jen.`,
       },
       prism: {
         theme: lightCodeTheme,

@@ -1,33 +1,26 @@
 ---
-sidebar_position: 1
+  sidebar_position: 1
+  id: problem_record1
+  title: 從Server拿到大筆資料，畫面要如何顯示不leg
+  tags:
+    - Demo
+    - Getting started
+
 ---
 
-# 實戰問題
+# 從Server拿到大筆資料，畫面要如何顯示不leg
 
-## interface
+> - 環境設定
+> - 問題描述
+> - 原本期望效果
+> - 可能問題
+> - 解決辦法
+> - 參考資料
+
+(補充：錨點連結)
 
 
-Create a file at `blog/2021-02-28-greetings.md`:
+## 方法一：分頁顯示
 
-```md title="blog/2021-02-28-greetings.md"
----
-slug: greetings
-title: Greetings!
-authors:
-  - name: Joel Marcey
-    title: [Tech] RWD
-    url: https://github.com/JoelMarcey
-    image_url: https://github.com/JoelMarcey.png
-  - name: Sébastien Lorber
-    title: Docusaurus maintainer
-    url: https://sebastienlorber.com
-    image_url: https://github.com/slorber.png
-tags: [greetings]
----
+## 方法二：無限下拉顯示
 
-Congratulations, you have made your first post!
-
-Feel free to play around and edit this post as much you like.
-```
-
-A new blog post is now available at `http://localhost:3000/blog/greetings`.
