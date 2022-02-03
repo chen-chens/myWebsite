@@ -67,6 +67,19 @@ useEffect(() => console.log("useEffect !"),[obj])
 // 改值：
 setObj({...obj, name: "David"})
 ```
+
+### (補充) `Object.is` 與 `===` 差異
+
+```js  
+  0 === 0;            // true
+  Object.is(0, 0)     // true
+
+  +0 === -0;          // true
+  Object.is(+0, -0)   // false
+
+  NaN === NaN;        // false
+  Object.is(NaN, NaN) // true
+```
 ---
 ###  參考文章
 - [React官網 - useEffect](https://reactjs.org/docs/hooks-reference.html#useeffect)
