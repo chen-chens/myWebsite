@@ -44,7 +44,7 @@ export default App;
 ![import/ export (default)](https://ithelp.ithome.com.tw/upload/images/20210924/20131689ofwteqvjEr.png)
 
 ### `import/ export (default)` 寫法
-(寫法ㄧ)
+#### (寫法一)
 ```
 // App.jsx (輸出)
 export default App;
@@ -56,7 +56,7 @@ import App from './App';
 - `export default` : 一個文件檔內只能一組。
 - `import` 元件名稱同 輸出名稱，不能修改。
 
-(寫法二)
+#### (寫法二)
 ```
 // App.jsx (輸出)
 export App;
@@ -69,7 +69,7 @@ import { App } from './App';
 - `import { App }` : 引入元件要加入 `{}`。
 - `import { App as ABC }` : 接受引入時改名，改名只在當前引入文件內有效。
 
-(寫法三) `export` 撰寫的位置
+#### (寫法三)： `export` 撰寫的位置
 ```
 function App() {
     return()
