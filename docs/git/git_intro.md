@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Git
+# 指令紀錄
 
-## interface
+## X-Mind 筆記
 
 
 Create a file at `blog/2021-02-28-greetings.md`:

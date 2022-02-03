@@ -42,6 +42,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      hideableSidebar: true,
       navbar: {
         title: 'Huei Jen Chen',
         logo: {
@@ -53,7 +54,7 @@ const config = {
             // label: 'TechDocs',
             label: '技術筆記',
             type: 'doc',
-            docId: 'emmet',
+            docId: 'git/git_intro',
             position: 'left',
           },
           {
@@ -118,7 +119,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Chen Huei Jen.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Chen Huei Jen. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
