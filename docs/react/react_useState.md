@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 12
 ---
 
 # Hooks - useState
@@ -45,6 +45,11 @@ React 提供 useState方法，讓我們可以輕易操控資料變化。我們�
 `component`命名開頭都是大寫，用來與 HTML標籤 做區別。
 :::
 
+:::note
+state is immutable. 不可以直接對state操作，如果要改變state :
+  - 使用setState()方法
+  - 拷貝state，在拷貝內執行修改，最後還是要放回setState()
+:::
 
 ---
 ## 實作練習
@@ -55,11 +60,10 @@ React 提供 useState方法，讓我們可以輕易操控資料變化。我們�
 ### 過程紀錄
 - 建立一個 `component`: 
 ```
-export default function ToDoList() {
-    // do something
-    
-    return(        // element
-         <>
+export default function ToDoList() {    
+    return( 
+        // highlight-next-line
+        <>
           <Space>
             <Input
               value={inputValue}
@@ -72,6 +76,7 @@ export default function ToDoList() {
               <li id={item.id}>{item.value}</li>
             ))}
           </ul>
+        // highlight-next-line
         </>
     )
 }
@@ -108,7 +113,25 @@ export default function ToDoList() {
 ### 顯示效果：
 ![顯示效果](https://ithelp.ithome.com.tw/upload/images/20210923/201316899nNfzE13Tv.png)
 
+
+---
+
+### (補充) Fragment
+#### 為了解決什麼問題 ?  
+  - **React 在JSX設定 : 外層必須有包裹元素。**
+      如果JSX外層沒有容器包裹，會顯示以下錯誤訊息：
+      ![如果JSX外層沒有容器包裹，會顯示錯誤訊息。](../../static/img/docs/error_fragment.png)
+
+  - **在return( ) 內寫入多行JSX，為了維持外層包裹，加入<div></div>，會發生以下情況:**
+      1. 外層多一層 `<div>`，恐影響CSS樣式設定，架構上多一層無意義。
+      2. 在分拆元件的情況，每個元件外都多一層 `<div>`，也可能影響HTML本身結構。
+      (例 :  `<li></li>`另拆成元件，之後與`<ul></ul>`組合，中間多了`<div>`導致無法正常顯示)
+#### 如何解決 ?
+  - Fragments let you group a list of children without adding extra nodes to the DOM.
+  - 在開發者工具Element是看不到的，完美解決多一層`<div>`問題。
+  - React提供的佔位符(元件)，也可以簡寫為 `<></>`
 ---
 ## 參考文章
 - [Reconciliation](https://zh-hant.reactjs.org/docs/reconciliation.html)
 - [Why doesn’t React update this.state synchronously?](https://reactjs.org/docs/faq-state.html#why-doesnt-react-update-thisstate-synchronously)
+- [Fragment](https://reactjs.org/docs/fragments.html)
