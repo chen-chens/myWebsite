@@ -57,11 +57,11 @@ const config = {
             docId: 'git/git_intro',
             position: 'left',
           },
-          {
-            label: '閱讀筆記',
-            to: '/blog',  
-            position: 'left'
-          },
+          // {
+          //   label: '閱讀筆記',
+          //   to: '/blog',  
+          //   position: 'left'
+          // },
           {
             label: '專案作品',
             to: '/projects',  

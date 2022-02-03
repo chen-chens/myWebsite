@@ -38,10 +38,7 @@ ul{
 .markdown ul{
     margin-left: 20px;
 }
-li{
-  /* list-style: none; */
-  /* text-indent: 1rem; */
-}
+
 ul, li{
   margin: 0;
   padding: 0;
@@ -52,13 +49,13 @@ ul, li{
   display: none;
 }
 
-.navbar__items > .profolio {
-  /* display: block;
+/* .navbar__items > .profolio {
+  display: block;
   background-color: var(--ifm-color-primary);
   padding: 5px 10px;
   border-radius: 5px;
-  color: #fff; */
-}
+  color: #fff; 
+} */
 
 .footer__items {
   display: flex;
