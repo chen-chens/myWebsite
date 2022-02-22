@@ -76,7 +76,7 @@ sidebar_position: 1
   ```
 :::info
   加入索引後，在 Sourcetree 可以看到 `HEAD`指標，指向目前分支最新的索引位置。
-  ![before git add](../../static/img/docs/before_git_add.png)
+  ![before git add](../../static/img/docs/git/before_git_add.png)
 :::
 :::caution
   沒有加入索引的資料，不能提交至 Repository。（git 是將索引資料狀態提交給Repository）
@@ -158,28 +158,61 @@ sidebar_position: 1
   ```
   回傳訊息：
   ```
-    Switched to branch 'Joanna-PI'
-    Your branch is up to date with 'origin/Joanna-PI'.
+    Switched to branch '分支名稱'
+    Your branch is up to date with 'origin/分支名稱'.
   ```
 :::caution
   寫程式碼之前，留意一下目前 `git branch` 位置，避免拿錯分支更新資料!
 :::
 
-### 10. 合併分支(Branch)：誰併誰 123
-<!-- master合併branch -->
-### 10. 合併分支(Branch)：誰併誰
+### 10. 合併分支(Branch)：
 :::warning
-**特別留意：目前所在位置，**
+**特別留意：目前所在位置，是誰要併誰。**
 :::
+**master資料舊，branch新，master更新資料同branch**
   ```
     git checkout master // HEAD 指向 master
     git merge 分支名稱   // master 合併 分支更新內容
   ```
-This is git master/
+**branch資料舊，master新，branch更新資料同master**
+  ```
+    git checkout 分支名稱  // HEAD 指向 分支
+    git merge master     // 分支 合併 master
+  ```
+  ![branch資料舊，master新](../../static/img/docs/git/git_branch_merge_master_01.png)
+  ![branch資料更新同master最新索引](../../static/img/docs/git/git_branch_merge_master_02.png)
+
+### 10-1. 合併衝突：
+  #### 兩合併分支在資料相同位置同時做更新，就會產生下衝突
+  回傳訊息參考：
+  ```
+    Auto-merging docs/git/git_intro.md
+    CONFLICT (content): Merge conflict in docs/git/git_intro.md
+    Automatic merge failed; fix conflicts and then commit the result.
+  ```
+  VS code 顯示衝突位置：
+  ![合併衝突](../../static/img/docs/git/git_merge_conflict.png)
+  
+  解決資料衝突後，回傳訊息參考：
+  ```
+    On branch test
+    You have unmerged paths.
+    (fix conflicts and run "git commit")
+    (use "git merge --abort" to abort the merge)
+
+    Changes to be committed:
+    new file:   static/img/docs/after_git_add_commit.png
+
+    Unmerged paths:
+    (use "git add <file>..." to mark resolution)
+    both modified:   docs/git/git_intro.md
+  ```
+  #### 確認完哪個資料要留，要記得一樣 `git commit` 更新最後修正版本，才算完成！
+  ![解決合併衝突](../../static/img/docs/git/git_merge_conflict_change.png)
+
 ### 11. 刪除分支(Branch)：
   ```
-    git checkout master
-    git merge 分支名稱
+    git branch -d 分支名稱
   ```
 ---
 ### (補充) 名詞解釋

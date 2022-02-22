@@ -120,7 +120,7 @@ export default function ToDoList() {
 #### 為了解決什麼問題 ?  
   - **React 在JSX設定 : 外層必須有包裹元素。**
       如果JSX外層沒有容器包裹，會顯示以下錯誤訊息：
-      ![如果JSX外層沒有容器包裹，會顯示錯誤訊息。](../../static/img/docs/error_fragment.png)
+      ![如果JSX外層沒有容器包裹，會顯示錯誤訊息。](../../static/img/docs/react/error_fragment.png)
 
   - **在return( ) 內寫入多行JSX，為了維持外層包裹，加入<div></div>，會發生以下情況:**
       1. 外層多一層 `<div>`，恐影響CSS樣式設定，架構上多一層無意義。
