@@ -165,7 +165,7 @@ sidebar_position: 1
   寫程式碼之前，留意一下目前 `git branch` 位置，避免拿錯分支更新資料!
 :::
 
-### 10. 合併分支(Branch)：誰併誰
+### 10. 合併分支(Branch)：誰併誰 123
 <!-- master合併branch -->
 :::warning
 **特別留意：目前所在位置，**
