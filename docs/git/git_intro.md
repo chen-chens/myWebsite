@@ -169,12 +169,30 @@ sidebar_position: 1
 :::warning
 **特別留意：目前所在位置，是誰要併誰。**
 :::
-**master資料舊，branch新，master更新資料同branch**
+#### (一) master資料舊，branch新，master更新資料同branch
   ```
     git checkout master // HEAD 指向 master
     git merge 分支名稱   // master 合併 分支更新內容
   ```
-**branch資料舊，master新，branch更新資料同master**
+  ![branch資料舊，master新](../../static/img/docs/git/git_master_merge_branch_01.png)
+  ![branch資料更新同master最新索引](../../static/img/docs/git/git_master_merge_branch_02.png)
+
+  回傳訊息參考：
+  ```
+    Updating 1234b1b..e6eb481
+    Fast-forward
+    docs/git/git_intro.md                              |  51 +++++++++++++++++++++++++++++++++++++++++++--------
+    docs/react/react_useState.md                       |   2 +-
+    static/img/docs/{ => git}/after_git_add_commit.png | Bin
+    static/img/docs/git/git_branch_merge_master_01.png | Bin 0 -> 111171 bytes
+    ...
+    9 files changed, 44 insertions(+), 9 deletions(-)
+    rename static/img/docs/{ => git}/after_git_add_commit.png (100%)
+    create mode 100644 static/img/docs/git/git_branch_merge_master_01.png
+    ...
+  ```
+
+#### (二) branch資料舊，master新，branch更新資料同master
   ```
     git checkout 分支名稱  // HEAD 指向 分支
     git merge master     // 分支 合併 master
@@ -182,8 +200,9 @@ sidebar_position: 1
   ![branch資料舊，master新](../../static/img/docs/git/git_branch_merge_master_01.png)
   ![branch資料更新同master最新索引](../../static/img/docs/git/git_branch_merge_master_02.png)
 
+
 ### 10-1. 合併衝突：
-  #### 兩合併分支在資料相同位置同時做更新，就會產生下衝突
+  #### 兩合併分支在資料相同位置同時做更新，就有可能產生衝突。
   回傳訊息參考：
   ```
     Auto-merging docs/git/git_intro.md
@@ -209,6 +228,10 @@ sidebar_position: 1
   ```
   #### 確認完哪個資料要留，要記得一樣 `git commit` 更新最後修正版本，才算完成！
   ![解決合併衝突](../../static/img/docs/git/git_merge_conflict_change.png)
+  回傳訊息參考：
+  ```
+    [test deafe11] update merge conflict
+  ```
 
 ### 11. 刪除分支(Branch)：
   ```
