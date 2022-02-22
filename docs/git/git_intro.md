@@ -173,7 +173,7 @@ sidebar_position: 1
     git checkout master // HEAD 指向 master
     git merge 分支名稱   // master 合併 分支更新內容
   ```
-
+This is git master/
 ### 11. 刪除分支(Branch)：
   ```
     git checkout master
