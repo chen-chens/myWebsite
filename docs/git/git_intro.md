@@ -105,7 +105,8 @@ sidebar_position: 1
     nothing to commit, working tree clean
   ```
 :::info
-  **沒有問題，就可以上 remote。(push 上 github 要再更改會有點麻煩，多做確認少麻煩!)**
+  **沒有問題，就可以上 remote。(push 上 github 要再更改會有點麻煩，多做確認少麻煩!)**<br/>
+  [Github筆記連結](./github_intro.md)
 :::
 
   回傳訊息：（部分內容在 local repository還沒有紀錄）
