@@ -51,5 +51,13 @@ sidebar_position: 2
 ```
     git push 遠端空間的名稱 指定分支
 ```
+回覆訊息參考
+```
+    [master 6996574] [v0.1.2] - add Tech Docs/Git & Github/Github
+    5 files changed, 53 insertions(+), 2 deletions(-)
+    create mode 100644 static/img/docs/git/github_add_repository.png
+    create mode 100644 static/img/docs/git/github_add_repository_name.png
+    create mode 100644 static/img/docs/git/github_after_add_repository.png`
+```
 
 ### 4. 重新整理 Github，應該會看到資料。
