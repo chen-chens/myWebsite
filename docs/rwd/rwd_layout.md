@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # 六種格線系統寫法

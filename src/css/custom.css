@@ -44,6 +44,38 @@ ul, li{
   padding: 0;
 }
 
+.table-wrapper{
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+.table-wrapper table th:first-of-type {
+  width: 18%;
+}
+.table-wrapper table th:nth-of-type(2) {
+  width: 20%;
+}
+.table-wrapper table th:nth-of-type(3) {
+  width: 20%;
+}
+.table-wrapper table th:nth-of-type(4) {
+  width: 12%;
+}
+.table-wrapper table th:nth-of-type(5) {
+  width: 10%;
+}
+.table-wrapper table th:nth-of-type(7) {
+  width: 30%;
+}
+.table-axis table td{
+  text-align: start;
+  vertical-align: top;
+}
+.table-axis table th:nth-of-type(1),
+.table-axis table th:nth-of-type(2),
+.table-axis table th:nth-of-type(3) {
+  width: 33.333333%;
+}
 
 .iconExternalLink_node_modules-\@docusaurus-theme-classic-lib-next-theme-IconExternalLink-styles-module {
   display: none;

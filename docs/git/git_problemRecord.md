@@ -17,35 +17,64 @@ sidebar_position: 3
 ### 在本地端，還沒上遠端的情況
 
 <details>
-  <summary><strong>(2-1) 修改最後一次 本地版本（<code>commit</code>）:</strong></summary>
+  <summary>
+    <strong>(2-1) 修改最後一次 本地版本（commit）: <code>git commit --amend -m "修改的commit內容"</code></strong>
+  </summary>
 
 ```
     git commit --amend -m "修改的commit內容"
 ```
 
-回傳訊息
+回傳訊息參考
 ```
-
+    [master 42f24fb] [v0.1.3] - update Tech Docs/Git & Github/git_problemRecord
+    Date: Fri Feb 25 15:36:25 2022 +0800
+    2 files changed, 88 insertions(+), 27 deletions(-)
+    create mode 100644 static/img/docs/git/git_problemRecord_git_reset_risk.png
 ```
 
 :::success 提醒
-使用 `--amend` 來修正 commit內容，會往前增加一新 `commit`。
+使用 `--amend` 來修正 commit內容，會往前增加一新版本 `commit id`。
+
+舉例：
+```
+    git commit -m "[v0.1.3] - update git_problemRecord"
+    git commit --amend -m "[v0.1.3] - update Tech Docs/Git & Github/git_problemRecord"
+```
+
+**`git log --pretty=oneline` : 看不到修正前的commit內容。**
+```
+    42f24fbbc442061acef19345c4a1e03c55e2f15c (HEAD -> master) [v0.1.3] - update Tech Docs/Git & Github/git_problemRecord
+    61400f70a01b8f5bbf141f258907856770a685ae (origin/master) [v0.1.2] - init Tech Docs/Git & Github/git_problemRecord
+    699657431f609c1307a6a53bd1c9dbd0fd31727c [v0.1.2] - add Tech Docs/Git & Github/Github
+```
+**`git reflog` : 紀錄所有commit動作，包含之前key錯的commit內容**（這裡第二行可以看到，`commit id` 有更新。）
+```
+    42f24fb (HEAD -> master) HEAD@{0}: commit (amend): [v0.1.3] - update Tech Docs/Git & Github/git_problemRecord
+    90dd2da HEAD@{1}: commit: [v0.1.3] - update git_problemRecord
+    61400f7 (origin/master) HEAD@{2}: commit: [v0.1.2] - init Tech Docs/Git & Github/git_problemRecord
+```
 :::
 
 </details>
 
 <details>
-  <summary><strong>(2-2) 修改其中一次 本地版本（<code>commit</code>）:</strong></summary>
+  <summary>
+    <strong>(2-2) 修改其中一次 本地版本（commit）: <code>git rebase</code></strong>  
+  </summary>
   <h4>首先，要先找到： 目前位置、想要退回的目標版本（<code>commit id</code>）</h4>
-
   <h4>再來，下指令告知退回的版本 （<code>commit id</code>）</h4>
+
+  ```
+    git rebase
+  ```
 
 </details>
 
 
 ### 已經上遠端的情況：
 <details>
-  <summary><strong>(2-3) 修改最後一次 遠端版本（<code>commit</code>）:</strong></summary>
+  <summary><strong>(2-3) 修改最後一次 遠端版本（commit）:</strong></summary>
    <h4>(2-3-1) 專案只有自己在做的情況</h4>
 
 
@@ -57,7 +86,9 @@ sidebar_position: 3
 </details>
 
 <details>
-  <summary><strong>(2-4) 修改其中一次 遠端版本（<code>commit</code>）:</strong></summary>
+  <summary>
+    <strong>(2-4) 修改其中一次 遠端版本（commit）: 個人專案<code>git reset</code>、協作專案<code>git revert</code></strong>
+  </summary>
    <h4>(2-4-1) 專案只有自己在做的情況</h4>
    <div>我會直接在本地端更新，返回目標版本，然後 <code>push</code> 強迫遠端更新同本地端。</div>
    <div>(補充：當我本地返回目標版本，本地端的版本落後遠端版本，需要執行強制覆蓋，遠端版本才會更新)</div>
@@ -84,8 +115,8 @@ sidebar_position: 3
 </details>
 
 :::note 補充說明
-- [git reflog 是什麼](#五-git-loggit-reflog-差在哪裡)
-- [git revert 是什麼](#四-git-resetgit-revertgit-rebase-差在哪裡)
+- [#（五）git-log、git-reflog 差在哪裡？](#五-git-loggit-reflog-差在哪裡)
+- [#（四）git-reset、git-revert、git-rebase 差在哪裡？](#四-git-resetgit-revertgit-rebase-差在哪裡)
 
 - 指定目標版本的寫法，除了`版本Id`，還可以寫成`HEAD前幾個版本`，例如：
     ```
@@ -115,11 +146,12 @@ sidebar_position: 3
 
 ## (四) `git reset`、`git revert`、`git rebase` 差在哪裡？
 
-|指令|用途|是否會新增commit|適用時機|
-|--|--|--|--|
-|reset|--|--|--|
-|rebase|--|--|--|
-|revert|--|是|--|
+|指令|用途|是否會新增commit|適用時機|如果反悔資料救得回來嘛|
+|--|--|--|--|--|
+|`reset`|--|--|--|`reset` 的三種模式都救得回來（`--mixed` `--soft` `--hard`）|
+|`rebase`|修正歷史紀錄|--|--|--|
+|`revert`|復原至某版本|是|已放上遠端，而且與他人協作|--|
+
 ---
  
 
@@ -138,6 +170,13 @@ sidebar_position: 3
 
 對應 source tree 顯示
 ![source tree 顯示 git log](../../static/img/docs/git/git_problemRecord_git_log.png)
+
+**`git log --pretty=oneline`**
+```
+    42f24fbbc442061acef19345c4a1e03c55e2f15c (HEAD -> master) [v0.1.3] - update Tech Docs/Git & Github/git_problemRecord
+    61400f70a01b8f5bbf141f258907856770a685ae (origin/master) [v0.1.2] - init Tech Docs/Git & Github/git_problemRecord
+    699657431f609c1307a6a53bd1c9dbd0fd31727c [v0.1.2] - add Tech Docs/Git & Github/Github
+```
 
 </details>
 
@@ -162,9 +201,19 @@ sidebar_position: 3
 </details>
 
 #### 整理一下
+|指令|用途|關鍵字|
+|--|--|--|
+|`git log`|--|--|
+|`git reflog`|--|--|
 
+---
 
-## 名詞整理
+### 名詞整理
 > - amend: 修正
 > - revert: 還原、返回
-> 
+> - rebase: 
+
+---
+
+### 參考資源
+- [【狀況題】剛才的 Commit 後悔了，想要拆掉重做…](https://gitbook.tw/chapters/using-git/reset-commit)

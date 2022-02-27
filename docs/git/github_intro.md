@@ -2,12 +2,12 @@
 sidebar_position: 2
 ---
 
-# Github
+# GitHub
 *多人共同開發專案，將 `local Repository` 上傳至 `remote Repository`，其他人可以取得更新的雲端資料，並拉到 本地端做使用。*
 
-## Github 雲端專案管理
+## GitHub 雲端專案管理(Git to GitHub)
 ### (一) 前置準備
-#### 1. 申請 [Github](https://github.com/)帳號。
+#### 1. 申請 [GitHub](https://github.com/)帳號。
 #### 2. 建立專案: 要將本地Git上傳到原端，需要先有一遠端空間 (該專案網址)。<br/>
 ![新增專案](../../static/img/docs/git/github_add_repository.png)
 ![專案名稱必填](../../static/img/docs/git/github_add_repository_name.png)
@@ -60,4 +60,7 @@ sidebar_position: 2
     create mode 100644 static/img/docs/git/github_after_add_repository.png`
 ```
 
-### 4. 重新整理 Github，應該會看到資料。
+### 4. 重新整理 GitHub，應該會看到資料。
+---
+
+## GitHub 雲端專案管理(GitHub to Git)
