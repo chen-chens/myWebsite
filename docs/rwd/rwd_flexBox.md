@@ -64,7 +64,7 @@ sidebar_position: 2
 - 父層CSS設定主軸方向與物件順序
 - 預設對齊方向也改變
 
-```css
+```css title="style.css"
   .item{
     flex-direction: row-reverse;    /* 水平方向: (預設)左 >> 右 (現在)右 >> 左 */
     justify-content: flex-start;     /* 水平方向: (預設)靠左 -- (現在)靠右 */
@@ -73,7 +73,7 @@ sidebar_position: 2
 
 ![父層CSS設定主軸方向與物件順序](../../static/img/docs/css/css_row_reverse.png)
 
-```css
+```css title="style.css"
   .item{
     flex-direction: column-reverse; /* 垂直方向: (預設)上 >> 下 (現在)下 >> 上 */
     justify-content: column-reverse; /* 垂直方向: (預設)靠上 -- (現在)靠下 */
