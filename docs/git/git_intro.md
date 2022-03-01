@@ -36,7 +36,7 @@ sidebar_position: 1
     - 還沒有 `commits`: local repository 尚未有紀錄。<br/>
   **搭配上面的指令圖，很清楚知道 目前 `master` 更新內容停留在 `index/staging area`。**
 :::
-  #### 回傳訊息：（有資料要更新）
+  #### 回傳訊息：（尚未建立索引，有資料新增）
   ```
     On branch master
 
@@ -64,9 +64,33 @@ sidebar_position: 1
   **搭配上面的指令圖，很清楚知道 目前 `master` 更新內容停留在 `working tree`。**
 :::
 
+另外一種訊息：（之前有建立索引，有資料修改）
+
+```
+  On branch master
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git restore <file>..." to discard changes in working directory)
+          modified:   docs/git/git_problemRecord.md
+          modified:   docs/git/github_intro.md
+
+  no changes added to commit (use "git add" and/or "git commit -a")
+
+```
+
+:::note
+上面很清楚告知：
+  - 目前位置：`master`
+  - 更新資料狀態: 
+    - 有加入 索引追蹤，但更新資料尚未存至暫存區: 
+      - `(use "git add <file>..." to update what will be committed)`: 將最新更新資料加入索引，再執行 `commit`。
+      - `(use "git restore <file>..." to discard changes in working directory)`: 忽略在 工作目錄下更新的內容（放棄剛剛更新的資料）。
+  **搭配上面的指令圖，很清楚知道 目前 更新內容停留在 `working tree`，還沒進暫存區。**
+:::
+
 ### 3. 將檔案加入追蹤 `Index/Stage` 清單: 有新增修改內容的情況
   ```
-    git add 檔名
+    git add 檔名.副檔名
     // 指定存放置暫存的檔名
 
     git add . 

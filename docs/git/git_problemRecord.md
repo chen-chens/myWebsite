@@ -6,12 +6,49 @@ sidebar_position: 3
 *紀錄曾經的犯錯，還是有辦法重新來過。*
 
 ## (一) 執行 `git add`，但是後悔想改
-** `git add` 只存在本地端，還沒 `push` 上遠端都好解決。**
-```
+- ** `git add` 只存在本地端，還沒 `push` 上遠端都好解決。**
+- ** 先來看 `git status` 有幾個情況：**
+
+![git status](../../static/img/docs/git/git_gitProblemRecord_git_status.png)
+
+- ** 對應資料狀態與指令圖：**
+![git status reply](../../static/img/docs/git/git_gitProblemRecord_git_status_reply.png)
+
+整理以下就是：
+<details>
+  <summary>
+    <strong>(1-1) 只有執行過一次 <code>git add</code> 的情況: <code>git reset HEAD 檔案名稱.副檔名</code></strong>
+  </summary>
 
 ```
+   git reset HEAD <檔案名稱.副檔名>  // 還原檔案狀態 staged files to unstaged files
+```
+
+</details>
+
+<details>
+  <summary>
+    <strong>(1-2) 已有索引追蹤，想拿掉最後一次 <code>git add</code> 的情況: <code>git checkout 檔案名稱.副檔名</code></strong>
+  </summary>
+
+```
+  git checkout -- <檔案名稱.副檔名>  // 還原內容 至 暫存區最後一次的版本（剛修改的內容就掰掰了）
+  git checkout .                   // 還原全部檔案 至 暫存區最後一次的版本（剛修改的內容就掰掰了）
+```
+
+:::caution `git checkout`有兩個意思
+> `git-checkout - Switch branches or restore working tree files` <br />
+> 來自[git 官網](https://git-scm.com/docs/git-checkout)
+
+1. 切換分支: `git checkout 分支名稱`
+2. 還原內容: `git checkout -- <檔案名稱.副檔名>`
+
+:::
+
+</details>
+
+
 ---
-
 
 ## (二) 執行 `git commit`，但是後悔想改 
 ### 在本地端，還沒上遠端的情況
@@ -217,3 +254,4 @@ sidebar_position: 3
 
 ### 參考資源
 - [【狀況題】剛才的 Commit 後悔了，想要拆掉重做…](https://gitbook.tw/chapters/using-git/reset-commit)
+- [檔案狀態](https://zlargon.gitbooks.io/git-tutorial/content/file/status.html)

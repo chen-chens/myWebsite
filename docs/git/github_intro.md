@@ -13,7 +13,8 @@ sidebar_position: 2
 ![專案名稱必填](../../static/img/docs/git/github_add_repository_name.png)
 ![新增遠端專案後，git 要加入該遠端空間的指令參考](../../static/img/docs/git/github_after_add_repository.png)
 
-### (二）回到本地端該專案，開啟 VS code Terminal
+### (二）情況一：Git to Github
+回到本地端該專案，開啟 VS code Terminal
 ### 1. 查詢有無關聯的遠端專案空間:
 ```
     git remote     // 回傳 遠端專案名稱
@@ -63,4 +64,27 @@ sidebar_position: 2
 ### 4. 重新整理 GitHub，應該會看到資料。
 ---
 
-## GitHub 雲端專案管理(GitHub to Git)
+### (三) 情況二： GitHub 雲端專案管理(GitHub to Git)
+### 1. 複製 遠端專案網址
+
+```
+    git clone 遠端專案網址 本地端資料夾名稱
+```
+
+### 2. 檢查 是否本地端是否連接成功
+
+```
+    git status
+    git remote -v
+```
+
+回傳訊息參考：
+
+```
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
+    nothing to commit, working tree clean.
+```
+
+### 
