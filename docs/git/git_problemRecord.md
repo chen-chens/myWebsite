@@ -47,6 +47,8 @@ sidebar_position: 3
 
 </details>
 
+- 保留更新內容，狀態返回
+- 不保留更新內容，狀態返回
 
 ---
 
