@@ -17,7 +17,7 @@ sidebar_position: 3
 整理以下就是：
 <details>
   <summary>
-    <strong>(1-1) 只有執行過一次 <code>git add</code> 的情況: <code>git reset HEAD 檔案名稱.副檔名</code></strong>
+    <strong>(1-1) 只有執行過一次 <code>git add</code> 的情況，想要還原回至上一個狀態: <code>git reset HEAD 檔案名稱.副檔名</code></strong>
   </summary>
 
 ```

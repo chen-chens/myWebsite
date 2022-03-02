@@ -26,12 +26,6 @@ const config = {
           // Please change this to your repo.
           editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -45,10 +39,6 @@ const config = {
       hideableSidebar: true,
       navbar: {
         title: 'Huei Jen Chen',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
-        },
         items: [
           {
             label: 'TechDocs',
@@ -56,11 +46,6 @@ const config = {
             docId: 'git/git_intro',
             position: 'left',
           },
-          // {
-          //   label: '閱讀筆記',
-          //   to: '/blog',  
-          //   position: 'left'
-          // },
           {
             label: 'Side Projects',
             to: '/projects',  
