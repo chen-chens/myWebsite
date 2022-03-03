@@ -17,7 +17,7 @@ sidebar_position: 3
 整理以下就是：
 <details>
   <summary>
-    <strong>(1-1) 只有執行過一次 <code>git add</code> 的情況，想要還原回至上一個狀態: <code>git reset HEAD 檔案名稱.副檔名</code></strong>
+    <strong>(1-1) 只有執行過一次 <code>git add</code> 的情況，想要還原回至上一個狀態: <code>git reset</code></strong>
   </summary>
 
 ```
@@ -28,7 +28,10 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>(1-2) 已有索引追蹤，想拿掉最後一次 <code>git add</code> 的情況: <code>git checkout 檔案名稱.副檔名</code></strong>
+    <strong>(1-2) 已有索引追蹤，想拿掉最後一次 <code>git add</code> 的情況: 
+      <code>git checkout</code>、
+      <code>git restore</code>
+    </strong>
   </summary>
 
 ```
@@ -36,19 +39,33 @@ sidebar_position: 3
   git checkout .                   // 還原全部檔案 至 暫存區最後一次的版本（剛修改的內容就掰掰了）
 ```
 
-:::caution `git checkout`有兩個意思
-> `git-checkout - Switch branches or restore working tree files` <br />
-> 來自[git 官網](https://git-scm.com/docs/git-checkout)
+```
+  git restore --staged <檔案名稱.副檔名>  // 將 暫存區指定檔案 回覆 到 工作目錄的狀態 （staged file => unstaged file）
+  git restore <檔案名稱.副檔名>           // 將 工作目錄的狀態 回覆 到 沒有更新內容的狀態 （unstaged file => discard changes in working directory剛修改的內容就掰掰了）
+```
 
-1. 切換分支: `git checkout 分支名稱`
-2. 還原內容: `git checkout -- <檔案名稱.副檔名>`
+:::caution `git checkout` 有兩個意思
+> **`git-checkout` - Switch branches or restore working tree files** <br />
+>   from [git 官網](https://git-scm.com/docs/git-checkout)
+>
+> ---
+>
+> Git 2.23 introduces two new commands meant to replace two common uses of git checkout: <br />
+> **`git switch` to switch to a new branch after creating it if necessary**<br />
+> **`git restore` to restore changes from a given commit**.<br />
+>   from [Git 2.23 Adds Switch and Restore Commands](https://www.infoq.com/news/2019/08/git-2-23-switch-restore/)
+>
+> ---
+>
+> 1. 切換分支: `git checkout 分支名稱` => `git switch 分支名稱`
+> 2. 還原內容: `git checkout -- <檔案名稱.副檔名>` => `git restore <檔案名稱.副檔名>`
 
 :::
 
 </details>
 
-- 保留更新內容，狀態返回
-- 不保留更新內容，狀態返回
+- 保留更新內容，狀態返回: 
+- 不保留更新內容，狀態返回: `git checkout`
 
 ---
 
@@ -57,7 +74,7 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>(2-1) 修改最後一次 本地版本（commit）: <code>git commit --amend -m "修改的commit內容"</code></strong>
+    <strong>(2-1) 修改最後一次 本地版本（commit）: <code>git commit</code></strong>
   </summary>
 
 ```
@@ -183,13 +200,14 @@ sidebar_position: 3
 ---
 
 
-## (四) `git reset`、`git revert`、`git rebase` 差在哪裡？
+## (四) `git reset`、`git revert`、`git rebase`、`git restore` 差在哪裡？
 
-|指令|用途|是否會新增commit|適用時機|如果反悔資料救得回來嘛|
-|--|--|--|--|--|
-|`reset`|--|--|--|`reset` 的三種模式都救得回來（`--mixed` `--soft` `--hard`）|
-|`rebase`|修正歷史紀錄|--|--|--|
-|`revert`|復原至某版本|是|已放上遠端，而且與他人協作|--|
+|指令|官網敘述|用途|是否會新增commit|適用時機|如果反悔資料救得回來嘛|
+|--|--|--|--|--|--|
+|`reset`|Reset current HEAD to the specified state|--|--|--|`reset`的三種模式都救得回來（`--mixed` `--soft` `--hard`）|
+|`rebase`|Reapply commits on top of another base tip|修正歷史紀錄|--|--|--|
+|`revert`|Revert some existing commits|復原至某版本|Ｏ|已放上遠端，而且與他人協作|--|
+|`restore`|Restore working tree files|--|--|--|--|
 
 ---
  
@@ -257,3 +275,5 @@ sidebar_position: 3
 ### 參考資源
 - [【狀況題】剛才的 Commit 後悔了，想要拆掉重做…](https://gitbook.tw/chapters/using-git/reset-commit)
 - [檔案狀態](https://zlargon.gitbooks.io/git-tutorial/content/file/status.html)
+- [[CLI] Git 指令](https://pjchender.dev/app/cli-git/)
+- [Git 2.23 Adds Switch and Restore Commands](https://www.infoq.com/news/2019/08/git-2-23-switch-restore/)
