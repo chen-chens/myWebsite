@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 # 物件型別(Object)
-### *除了基礎型別以外的值都是物件。*
+### *除了基礎型別以外的值都是物件，包含 function。*
 
 ## object
 ### Q: 什麼是 物件？
@@ -71,7 +71,43 @@ sidebar_position: 2
     console.log(obj.mail);  // undefined
 ```
 
-## Q : 如何辨識屬性是否存在? 
+### 物件屬性、屬性值縮寫
+#### Q : 什麼時候物件屬性、屬性值會縮寫？
+#### A : 滿足以下條件：
+1. 屬性值為變數(dynamic value)
+2. 屬性名稱＝屬性值變數
+
+```jsx
+    // original
+    const title = "Harry";
+    const info = {
+        title: title
+    };
+
+    // 可以縮寫為：
+    const info = {
+        title,
+    };
+```
+        
+- 動態屬性寫法：這裡的屬性`extraName`由使用者輸入。使用`[dynamicPropertyName]`寫法。
+    
+```jsx
+    <input type="text" id="extra-name" />
+
+    const extraName = document.getElementById("extra-name").value;
+    const info = {
+        [extraName]:value
+    }
+```
+    
+![js_object_shortcut](../../static/img/docs/js/js_object_shortcut.png)
+    
+- 使用 `for-in` loop 印出 動態屬性值。
+![js_object_shortcut_for_loop](../../static/img/docs/js/js_object_shortcut_for_loop.png)
+
+
+### Q : 如何辨識屬性是否存在? 
 #### 使用in運算子: 會往上回推原型鍊(prototype chain)做檢查。
 ```js
     const obj = {id: 1, name: "Joanna", mail: "xxx@gmail.com"};
@@ -88,11 +124,9 @@ sidebar_position: 2
     console.log(obj.hasOwnProperty("age"));  // false
 ```
 
-
 ---
 
 ## array
-
 ### Q: 什麼是 陣列？
 - 陣列是零至多個元素的集合。
 - 陣列是「有序性」的集合，透過 [ ] 加上索引來存取。
@@ -866,8 +900,42 @@ members.findIndex((item) => item.name.length > 6); // -1
 
 ---
 
-## function
+## Destructuring: Object、Array
+### Object
+- `const { key } = object;`
+```jsx
+    const info = {
+    	id: 1,
+    	name: "Joanna",
+    	dream: "happyLife",
+    	hobbies: ["Sport", "Cooking", "Movies"]
+    };
+    
+    const { name, hobbies } = info;
+    console.log("name: ", name);       // 'Joanna'
+    console.log("hobbies: ", hobbies); // ['Sport', 'Cooking', 'Movies']
+```
+    
+- 其他屬性可以透過`...someName` 的方式，另外包出一個含所有其他屬性的物件。
+```jsx
+    const { name, ...others } = info;
+    console.log("others: ", others);
 
+    // 除了特別指名的屬性 name之外，其他通通包成一包給你。
+    console.log(name);   // "Joanna"
+    console.log(others); // { id: 1, dream: "happyLife", hobbies: ["Sport", "Cooking", "Movies"]};
+```
+    
+- 解構也可以重新命名。
+```js
+    const { name: newName } = info;
+    console.log("newName: ", newName); // "Joanna"
+```
+
+### Array
+#### 使用情況：要個別提出陣列內的元素使用時。可以同時多組變數對應陣列內元素。
+![js_array_destructuring](../../static/img/docs/js/js_array_destructuring.png)
+![js_rest_operator](../../static/img/docs/js/js_rest_operator.png)
 
 ---
 
@@ -890,11 +958,61 @@ members.findIndex((item) => item.name.length > 6); // -1
 
 ```
 
-
 ---
 ## shallow copy v.s. deep copy
+
+- shallow copy Object: 
+only clone the top level of object, other properties w/ ref. value in object will direct to original address. (which means: If I change the ref. value, all of which pointer the same address will update simutaneously.)
+- The method to shallow copy Object:
+
+
+<details>
+  <summary>
+    <strong><code>spread operator</code></strong>
+  </summary>
+
+```js
+    const info = {
+        name: "Joanna",
+        hobbies: ["Sport", "Cooking", "Movies"]
+    }
+
+    // shallow copy Object
+    const copyInfo = {...info};
+```
+
+![js_object_shallow_copy_01](../../static/img/docs/js/js_object_shallow_copy_01.png)
+![js_object_shallow_copy_02](../../static/img/docs/js/js_object_shallow_copy_02.png)
+![js_object_shallow_copy_03](../../static/img/docs/js/js_object_shallow_copy_03.png)
+![js_object_shallow_copy_04](../../static/img/docs/js/js_object_shallow_copy_04.png)
+![js_object_shallow_copy_05](../../static/img/docs/js/js_object_shallow_copy_05.png)
+
+</details>
+
+<details>
+  <summary>
+    <strong><code>Object.assign(target, resource1, resource2...)</code></strong>
+  </summary>
+
+```js
+    const info = {
+        name: "Joanna",
+        hobbies: ["Sport", "Cooking", "Movies"]
+    }
+
+    // shallow copy Object
+    const copyInfo = Object.assign({}, info);
+
+    // 也可以這樣寫：
+    const copyAndMergeInfo = Object.assign(info, {id: 1}, {details:["job","eat"]});
+```
+
+![js_object_assign_method](../../static/img/docs/js/js_object_assign_method.png)
+
+</details>
+
 
 ---
 ## 參考資料
 
-[筆記](https://www.notion.so/Summary-Object-6ca2286f85754d72a2095ac42a1998b4)
+[物件](https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part3/object.html#getter%E8%88%87setter)
