@@ -30,6 +30,14 @@ sidebar_position: 3
 - function hoisting 會將整個 function(包含執行動作)，都抬升至呼叫該function之前
 - funciton 無論寫在呼叫該function前或後，都不會影響函式執行。
 
+:::info Shadowed Variables
+> 1. **It's not allowed co-existing same variable name in the same lavel or same scope.**
+> 2. Same variable in different scope : It creates a new variable on a different scope - this variables does not overwrite or remove the global variable by the way. JavaScript does something which is called "**shadowing**".
+> 3. Firstly, it prevents inner scope to access variables defined in the outer scope. 
+Secondly, it prevents inner scope to modify or reassign variables defined in the outer scope.
+> - [Understanding ‘Variable Shadowing’ with JavaScript](https://mayuminishimoto.medium.com/understanding-variable-shadowing-with-javascript-58fc108c8f03)
+:::
+
 ---
 ### `var` `let` `const`
 
@@ -205,7 +213,6 @@ Uncaught SyntaxError: Identifier 'name' has already been declared
 ```
 
 </details>
-
 
 ---
 
