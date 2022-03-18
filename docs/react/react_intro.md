@@ -118,6 +118,8 @@ ReactDOM.render(
 - 版本號前面常見符號：
     - `^`: 更新版本以大版本號不動，接受中、小版本號更新。
     - `~`: 更新版本以中版本號不動，接受小版本號更新。
+    
+![版本更新](../../static/img/docs/react/react_version_update.png)
 
 ---
 ### 參考資料
