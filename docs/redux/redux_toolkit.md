@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 
 ### 資料夾結構
 <Tabs groupId="operating-systems">
-  <TabItem value="React in JS" label="React in JS" default>   
+  <TabItem value="JS" label="JS" default>   
 
 ```
   └── src
@@ -37,7 +37,7 @@ import TabItem from '@theme/TabItem';
 ```
 
   </TabItem>
-  <TabItem value="React in Typescript" label="React in Typescript">
+  <TabItem value="Typescript" label="Typescript">
 
 ```js
   └── src
@@ -67,7 +67,7 @@ import TabItem from '@theme/TabItem';
 - 使用 `configureStore()` 建立 `store`，整合所有 `reducer`
 
 <Tabs groupId="operating-systems">
-  <TabItem value="React in JS" label="React in JS" default>   
+  <TabItem value="JS" label="JS" default>   
 
 ```js title="src/store/store.js"
     import reducer1 from './slice/xx.js'
@@ -85,7 +85,7 @@ import TabItem from '@theme/TabItem';
 ```
 
   </TabItem>
-  <TabItem value="React in Typescript" label="React in Typescript">
+  <TabItem value="Typescript" label="Typescript">
 
 ```js title="src/store/store.ts"
     import reducer1 from './slice/xx.ts'
@@ -160,7 +160,7 @@ Redux Toolkit 提供一API: `createSlice()`<br/>
 :::
 
 <Tabs groupId="operating-systems">
-    <TabItem value="React in JS" label="React in JS" default>   
+    <TabItem value="JS" label="JS" default>   
 
 ```js title="src/slice/currentUser.js"
     import { createSlice } from '@reduxjs/toolkit'
@@ -187,7 +187,7 @@ Redux Toolkit 提供一API: `createSlice()`<br/>
 ```
 
   </TabItem>
-  <TabItem value="React in Typescript" label="React in Typescript">
+  <TabItem value="Typescript" label="Typescript">
 
 ```js title="src/slice/currentUser.ts"
     import { createSlice, PayloadAction } from '@reduxjs/toolkit'
@@ -233,7 +233,7 @@ Redux Toolkit 提供一API: `createSlice()`<br/>
 - `useDispatch()`: dispatch actions
 
 <Tabs groupId="operating-systems">
-    <TabItem value="React in JS" label="React in JS" default>   
+    <TabItem value="JS" label="JS" default>   
 
 ```js
     import { useSelector, useDispatch } from 'react-redux'
@@ -256,7 +256,7 @@ Redux Toolkit 提供一API: `createSlice()`<br/>
 ```
 
   </TabItem>
-  <TabItem value="React in Typescript" label="React in Typescript">
+  <TabItem value="Typescript" label="Typescript">
 
 
 ```js
