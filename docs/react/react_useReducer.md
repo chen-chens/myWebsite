@@ -3,35 +3,28 @@ sidebar_position: 8
 ---
 
 # Hooks - useReducer
-
 ## 為了解決什麼問題？
 
-## 概念 
-- 虛擬 tree
 
-## 筆記地圖
-
-Create a file at `blog/2021-02-28-greetings.md`:
-
-```md title="blog/2021-02-28-greetings.md"
 ---
-slug: greetings
-title: Greetings!
-authors:
-  - name: Joel Marcey
-    title: [Tech] RWD
-    url: https://github.com/JoelMarcey
-    image_url: https://github.com/JoelMarcey.png
-  - name: Sébastien Lorber
-    title: Docusaurus maintainer
-    url: https://sebastienlorber.com
-    image_url: https://github.com/slorber.png
-tags: [greetings]
+## 實作
+
+
 ---
+## 與 Redux 的差異？
 
-Congratulations, you have made your first post!
+優點
+缺點
 
-Feel free to play around and edit this post as much you like.
-```
+---
+## useContext + useReducer 實現 Redux 的寫法
 
-A new blog post is now available at `http://localhost:3000/blog/greetings`.
+
+---
+## useReducer call api ??
+
+
+---
+## 參考資源
+- [An Easy Guide to React useReducer() Hook](https://dmitripavlutin.com/react-usereducer/)
+- [React | 在 Hooks 中以 useContext 與 useReducer 實現 Redux](https://medium.com/enjoy-life-enjoy-coding/react-%E5%9C%A8-hooks-%E4%B8%AD%E4%BB%A5-usecontext-%E8%88%87-usereducer-%E5%AF%A6%E7%8F%BE-redux-3a8aa403d9e4)

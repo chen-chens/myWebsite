@@ -94,3 +94,118 @@ query AccountsQuery($query: AccountQuery){
         }
     } 
 ```
+
+
+### query lots in one time
+
+```
+query PickListsByName{
+  getPicklistsByName(listName: "account_type"){
+		id
+    organizationId
+  }
+}
+```
+
+reply:
+```
+{
+  "data": {
+    "getPicklistsByName": [
+      {
+        "id": "e24d6da6-4887-11ea-bb91-aad51d2c9554",
+        "organizationId": "e24c4dfe-4887-11ea-bb91-aad51d2c9554"
+      },
+      {
+        "id": "e24d6da7-4887-11ea-bb91-aad51d2c9554",
+        "organizationId": "e24c4dfe-4887-11ea-bb91-aad51d2c9554"
+      },
+      {
+        "id": "e24d6da8-4887-11ea-bb91-aad51d2c9554",
+        "organizationId": "e24c4dfe-4887-11ea-bb91-aad51d2c9554"
+      },
+      {
+        "id": "e24d6da9-4887-11ea-bb91-aad51d2c9554",
+        "organizationId": "e24c4dfe-4887-11ea-bb91-aad51d2c9554"
+      },
+      {
+        "id": "e24d6daa-4887-11ea-bb91-aad51d2c9554",
+        "organizationId": "e24c4dfe-4887-11ea-bb91-aad51d2c9554"
+      },
+      {
+        "id": "e24d6dab-4887-11ea-bb91-aad51d2c9554",
+        "organizationId": "e24c4dfe-4887-11ea-bb91-aad51d2c9554"
+      },
+      {
+        "id": "e24d6dac-4887-11ea-bb91-aad51d2c9554",
+        "organizationId": "e24c4dfe-4887-11ea-bb91-aad51d2c9554"
+      }
+    ]
+  }
+}
+
+```
+
+query lots:
+
+```
+  query PickListsByName{
+    account_type: getPicklistsByName(listName: "account_type"){
+      id
+      listValue
+    }
+    
+    customer_priority: getPicklistsByName(listName: "customer_priority"){
+      id
+      listValue
+    }
+    
+    industry: getPicklistsByName(listName: "industry"){
+      id
+      listValue
+    }
+  }
+```
+
+reply:
+```
+{
+  "data": {
+    "account_type": [
+      {
+        "id": "e24d6da6-4887-11ea-bb91-aad51d2c9554",
+        "listValue": "Prospect"
+      },
+      {
+        "id": "e24d6da7-4887-11ea-bb91-aad51d2c9554",
+        "listValue": "Customer - Direct"
+      },
+    ],
+    "customer_priority": [
+      {
+        "id": "e24d6dad-4887-11ea-bb91-aad51d2c9554",
+        "listValue": "High"
+      },
+      {
+        "id": "e24d6dae-4887-11ea-bb91-aad51d2c9554",
+        "listValue": "Low"
+      },
+      {
+        "id": "e24d6daf-4887-11ea-bb91-aad51d2c9554",
+        "listValue": "Medium"
+      }
+    ],
+    "industry": [
+      {
+        "id": "e24d6db0-4887-11ea-bb91-aad51d2c9554",
+        "listValue": "Agriculture"
+      },
+      {
+        "id": "e24d6db1-4887-11ea-bb91-aad51d2c9554",
+        "listValue": "Apparel"
+      },
+    ]
+  }
+}
+
+```

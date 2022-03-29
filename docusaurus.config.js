@@ -46,20 +46,25 @@ const config = {
             docId: 'git/git_intro',
             position: 'left',
           },
-          {
-            label: 'Side Projects',
-            to: '/projects',  
-            position: 'left'
-          },
+          // {
+          //   label: 'Side Projects',
+          //   to: '/projects',  
+          //   position: 'left'
+          // },
           // {
           //   label: 'Profolio',
           //   class: 'profolio',
           //   to: '/profolio',
           //   position: 'right',
           // },
+          // {
+          //   label: 'Email',
+          //   href: 'https://line.me/ti/p/iY942GaUzk',
+          //   position: 'right',
+          // },
           {
-            label: 'Email',
-            href: 'https://mail.google.com',
+            label: 'Line',
+            href: 'https://line.me/ti/p/iY942GaUzk',
             position: 'right',
           },
           {
@@ -69,7 +74,7 @@ const config = {
           },
           {
             label: 'GitHub',
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/chen-chens',
             position: 'right',
           },
         ],

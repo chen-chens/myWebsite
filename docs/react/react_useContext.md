@@ -201,9 +201,9 @@ Context initialValue 為 `theme.light`，Context.Provider value props 為 `theme
 > useContext — This hook takes in a context object and returns whatever is passed in as a value prop in MyContext.Provider .
 > - [How to manage state in a React app with just Context and Hooks](https://www.freecodecamp.org/news/state-management-with-react-hooks/)
 
-
 ---
 
 ## 參考資源
 - [optimize it by using memoization.](https://github.com/facebook/react/issues/15156)
 - [React - context](https://reactjs.org/docs/context.html)
+- [How to use React Context effectively](https://kentcdodds.com/blog/how-to-use-react-context-effectively)
