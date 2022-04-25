@@ -8,7 +8,7 @@
 
 ---
 
-# 從Server取得大筆資料，如何讓使用者瀏覽網頁不卡卡
+# Performance Issue when fetching large Data from server
 
 ### 使用環境
   ```
@@ -47,11 +47,7 @@
 :::
 
 ### 參考資料
-<!-- :::note
 
-Some **content** with _markdown_ `syntax`. Check [this `api`](#).
-
-::: -->
 
 > #### [Virtualize Long Lists](https://zh-hant.reactjs.org/docs/optimizing-performance.html#virtualize-long-lists)
 > 說明內容<br/>

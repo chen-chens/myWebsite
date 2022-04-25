@@ -209,3 +209,19 @@ reply:
 }
 
 ```
+
+---
+
+## GrapgQL vs. RESTful API
+- RESTful concention:
+  - URL naming
+  - status code
+
+- GrapgQL: 
+
+- [GraphQL vs REST APIs | What’s the Best Kind of API?](https://codedamn.com/news/backend/graphql-vs-rest-apis-whats-the-best-kind-of-api)
+
+---
+## 參考資源
+- [4 Simple Ways to Call a GraphQL API](https://www.apollographql.com/blog/graphql/examples/4-simple-ways-to-call-a-graphql-api/)
+

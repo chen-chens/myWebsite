@@ -220,3 +220,6 @@ Uncaught SyntaxError: Identifier 'name' has already been declared
 - [hoisting from w3schools](https://www.w3schools.com/js/js_hoisting.asp)
 - [0 陷阱！0 誤解！8 天重新認識 JavaScript！](https://www.books.com.tw/products/0010832387)
 - [重新認識 JavaScript: Day 10 函式 Functions 的基本概念](https://ithelp.ithome.com.tw/articles/10191549c)
+
+## 其他
+- [[week 16] JavaScript 進階 - 什麼是閉包？探討 Closure & Scope Chain](https://hackmd.io/@Heidi-Liu/note-js201-closure)

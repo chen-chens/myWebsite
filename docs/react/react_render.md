@@ -123,11 +123,16 @@ const element = React.createElement("h1", {className: "greet"} , "Hi, I am Joann
 
 所以，在React裡面並不一定要撰寫 `JSX`，也可以用上面的方式建立React element。但考量易讀與維護性，還是建議使用`JSX`。
 
+### Why use `JSX` ?
+- 將邏輯與相對應的UI綁在一起，專注在事件處理、state的變化、如何顯示。
+- 可以不使用 `JSX`來撰寫React
+
 ### `JSX` 寫法規則
 - `class` (HTML標籤) -> `className` (JSX): class 在 JS 屬於保留字，為了區別。
 - `for` (HTML屬性) -> `htmlFor` (JSX): for 在 JS 屬於保留字，為了區別。
 - 如果標籤內沒有任何內容，使用 `< />` 關閉標籤。
 - `JSX`只接受 expression，故不能在`JSX`內寫`if-else`(statement)，判斷可以改用 `&&` `||` 或 [三元運算子](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)替代。
+- 瀏覽器看不懂 `JSX`，會透過 `Babel`編譯，呼叫 `React.createElement()` 轉成 React element的 JavaScript object。
 
 
 ---

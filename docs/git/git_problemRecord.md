@@ -129,23 +129,12 @@ sidebar_position: 3
 
 
 ### 已經上遠端的情況：
-<details>
-  <summary><strong>(2-3) 修改最後一次 遠端版本（commit）:</strong></summary>
-   <h4>(2-3-1) 專案只有自己在做的情況</h4>
-
-
----
-   <h4>(2-3-2) 專案還有其他協作的情況</h4>
-
-
-
-</details>
 
 <details>
   <summary>
-    <strong>(2-4) 修改其中一次 遠端版本（commit）: 個人專案<code>git reset</code>、協作專案<code>git revert</code></strong>
+    <strong>(2-3) 修改指定 遠端版本（commit）: 個人專案<code>git reset</code>、協作專案<code>git revert</code></strong>
   </summary>
-   <h4>(2-4-1) 專案只有自己在做的情況</h4>
+   <h4>(2-3-1) 專案只有自己在做的情況</h4>
    <div>我會直接在本地端更新，返回目標版本，然後 <code>push</code> 強迫遠端更新同本地端。</div>
    <div>(補充：當我本地返回目標版本，本地端的版本落後遠端版本，需要執行強制覆蓋，遠端版本才會更新)</div>
 
@@ -155,7 +144,7 @@ sidebar_position: 3
         git push origin master -f    // 強迫更新遠端資料庫同目前本地端
    ```
 ---
-   <h4>(2-4-2) 專案還有其他協作的情況</h4>
+   <h4>(2-3-2) 專案還有其他協作的情況</h4>
    <div>回退版本的風險：其他協作已提交的版本有可能也被我退回去。</div>
 
    ![返回版本的風險](../../static/img/docs/git/git_problemRecord_git_reset_risk.png)

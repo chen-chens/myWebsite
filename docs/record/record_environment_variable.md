@@ -45,7 +45,6 @@ You should really only save API keys or secrets in your backend such as Node / E
   - `.env`: 默認配置。
   - `.env.dev`: 開發配置。
   - `.env.prod`: 生產配置。
-  - ``:
 4. `.env`內紀錄的配置不適合上傳至開放空間，故會放置在 `.gitignore`，讓資訊留在本機端。（換句話說，敏感資訊也可以透過這樣的方式進行保護）
 
 :::note

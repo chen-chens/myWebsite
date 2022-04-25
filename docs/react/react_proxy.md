@@ -23,3 +23,4 @@ sidebar_position: 10
     - 延伸：
         1. CORS
         2. 同源政策
+        3. HTTP protocol
