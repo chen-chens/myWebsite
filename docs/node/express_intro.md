@@ -1,43 +1,93 @@
 ---
 sidebar_position: 3
+id: express_intro
+title: What is Express ?
+tags:
+- Node.js
+- Express.js
+- middleware
 ---
 
----
-# 草稿區
-## What is Express?
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+@Response methods
+
+
 #### Javascript based.
-#### 針對 Node.js 的 輕量 web 應用框架，用來處理： 
-- API建置(HTTP request、server response)
-- manage routing
-- error handling
-- sessions?
-- [What is Express.js?](https://www.besanttechnologies.com/what-is-expressjs)
+- 針對 Node.js 的 輕量 web 應用框架，用來處理： 
+  - API 建置(HTTP request、server response)
+  - manage routing
+  - error handling
+  - sessions ?
+  - [What is Express.js ?](https://www.besanttechnologies.com/what-is-expressjs)
 
 ---
 ## Express 解決什麼問題?
 #### Node 建置 HTTP server 時需要繁瑣且重複的程式碼，而Express 簡化了這些流程。
 
-(Node vs Express)
+Node vs Express
+
+<Tabs>
+  <TabItem value="Node" label="Node"> 
+
+```js title="server_Node_version.js"
+  const http = require("http");
+  const url = require("url");
+
+  // create server
+  http.createServer((request, response) => {
+    const resUrlData = url.parse(request.url, true);
+    const pathName = resUrlData.pathname;
+
+    // (一) handle 404 error page
+    const handleError = () => {
+      ...
+    }
+
+    // (二) parse path
+    if(pathName === "/"){
+      ...
+      response.end();
+    }else if(pathName === "/commits"){
+      ...
+      response.end();
+    }else if(pathName === "/user"){
+      ...
+      response.end();
+    }
+
+    // (三) server listening 
+  }).listen(5000, ()=> {
+    console.log("Sever is running....");
+  })
+```
+  </TabItem>
+
+  <TabItem value="Express" label="Express" default>   
+
+  ```js title="server_Express_version.js"
+    const express = require("express");  // 引入 express
+    const app = express();               // 建立 express instance。接下來，我們就可以使用express提供的方法了！
+
+    app.HTTP METHOD(PATH, HANDLER);
+    app.get("/", (req, res) => {...});
+    /**
+      * HTTP METHOD: get, post, put, delete
+      * PATH: 連結到 server上的路徑，可以是 字串 或 正則表達式
+      * HANDLER: 當符合 HTTP METHOD 與 PATH 條件時，執行 function 動作。（middleware function）
+    */
+
+    app.listen(5000, () => {
+      console.log("Sever is running....");
+    })
+  ```
+  </TabItem>
+</Tabs>
+
 
 ---
-## 起手式
-```js
-  const express = require("express");  // 引入 express
-  const app = express();               // 建立 express instance。接下來，我們就可以使用express提供的方法了！
-
-  app.HTTP METHOD(PATH, HANDLER);
-  /**
-    * HTTP METHOD: get, post, put, delete
-    * PATH: 連結到 server上的路徑，可以是 字串 或 正則表達式
-    * HANDLER: 當符合 HTTP METHOD 與 PATH 條件時，執行 function 動作
-  */
-```
-#### HANDLER 寫法
-#### 陣列函式寫法：
-```js
-  app.HTTP METHOD(PATH, (req, res) => {});
-```
-
+## Routing 寫法
 #### 陣列函式寫法：
 ```js
   app.HTTP METHOD(
@@ -66,8 +116,8 @@ sidebar_position: 3
   app.HTTP METHOD(PATH, [func1, func2, func3]);
 ```
 
-## app.route()
-### 解決什麼樣的問題？
+### app.route()
+#### 解決什麼樣的問題？
 針對相同的 PATH 可能使用不同的 HTTP METHOD。為了精簡程式碼、避免重複寫PATH，我們可以使用 `app.route(PATH)` 將
 所有HTTP METHOD串接起來：
 ```js
@@ -86,8 +136,10 @@ sidebar_position: 3
   })
 ```
 ---
-## express.Router()
-### 解決什麼樣的問題？
+### express.Router()
+- Express.js 4.0 有加入一個新的 Router 功能。
+- [express app和router的区别](https://segmentfault.com/q/1010000010447804)
+#### 解決什麼樣的問題？
 以往 router多的時候，檔案會變的龐大且複雜，像是這樣：
 ```js title="setting.js" 
   const express = require("express");
@@ -144,10 +196,8 @@ sidebar_position: 3
 
 
 
-
-
 ---
-## middleWare 的用途？
+## What is middleWare？
 - 什麼是 MiddleWare ?
   - 在兩軟體之間做溝通橋樑的角色。
   - 是一 function，基礎參數接收: (1) request object (2) response object (3) next funciton
@@ -201,7 +251,10 @@ sidebar_position: 3
 ![middleWare出現錯誤，就會跳出循環](https://miro.medium.com/max/1400/1*fbe04fcynkBuLo_CADxxHQ.png)
 [圖片來源](https://selvaganesh93.medium.com/how-node-js-middleware-works-d8e02a936113)
 
-### 總結：middleWare的用途
+:::info 總結
+### middleWare的用途
+---
+
 #### 1. 處理 API（req, res）之間，更多額外的事情。
 #### 2. 額外的事情包含：
 - 執行其他動作，包含變更 response、 request 的內容。
@@ -209,40 +262,64 @@ sidebar_position: 3
 - 跳出 middleware cycle，執行 response。
 #### 3. middleWare 執行`next()`來串接所有 middleWare(request-response cycle)，也就是說：放置的順序很重要！
 #### 4. middleWare 沒有執行`next()`，程式認知還沒執行完，整個頁面就會在那轉圈圈，直到 timeout.
+---
 
+```js
+(req, res, next) => {...}
+```
+#### 1. request object: 接收的內容
+#### 2. response object: 決定要回傳的內容
+#### 3. next funciton: 目前該 middleware 動作執行完畢，往下傳給下一個 middleware 
+  - req.params:
+  - req.body:
+  - req.query:
 
-:::info 與 API 之間的差別？
+---
+### next function
+- The next() function is not a part of the Node.js or Express API, but is the third argument that is passed to the middleware function.
+- [Express 官網：Writing middleware for use in Express apps](https://expressjs.com/en/guide/writing-middleware.html)
+:::
+
+舉例：
+```js
+  const requestCurrentTime = (req, res, next) => {
+    req.currentTime = Date.now(); // client req 加入 時間
+    next();                       // 確保執行完此 middleware，會傳下去下個 middleware
+  }
+
+  app.use(requestCurrentTime());  // app.use() 執行 middleware
+
+  app.get("/", (req, res) => {
+    res.send(`Now is ${req.currentTime}.`)
+  });
+
+  /**
+   * 執行順序：requestCurrentTime ---- next() ----> get method
+   * request object 透過 requestCurrentTime(middleware function) 新增內容
+  */
+```
+
+:::note 與 API 之間的差別？
   In fact, an API simply is a way for another software to engage your software. Instead, middleware is an additional software that translates between different technologies.
   
   - [What is middleware software? How to use it?](https://www.ictshore.com/software-design/what-is-middleware-software/)
 :::
 
 ---
-## Express 筆記
+## Express middleWare
 
-### (一) Regular handler middleware
-- function 基礎參數接收: 
-  1. request object: 接收的內容
-  2. response object: 決定要回傳的內容
-  3. next funciton: 目前該 middleware 動作執行完畢，往下傳給下一個 middleware 
+### (一) Application-level middleware
+- `app.use()`
+- `app.HTTP METHOD()`
 
-  - req.params:
-  - req.body:
-  - req.query:
+### (二) Router-level middleware
 
+### (三) Error-handling middleware
 
+### (四) Built-in middleware
 
-### (二) Error handler middleware
-:::info
-以下兩者的差異：
+### (五) Third-party middleware
 
-```js
-  var app = express();
-  var router = express.Router();
-```
-- Express.js 4.0 有加入一個新的 Router 功能。
-- [express app和router的区别](https://segmentfault.com/q/1010000010447804)
-:::
 
 ---
 ## 名詞補充

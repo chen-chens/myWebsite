@@ -1,8 +1,15 @@
 ---
 sidebar_position: 2
+id: node_api
+title: What is API 
+tags:
+- API
+- RESTful API
 ---
 
-# What is API ?
+:::info What is API ?
+## [Youtube: What is API?](https://www.youtube.com/watch?v=zvKadd9Cflc)
+:::
 ## API 的用途？
 :::note 情境：
 1. 我到麥當勞櫃檯點餐。
@@ -26,11 +33,12 @@ sidebar_position: 2
 #### 1. 接收 前端需求，傳遞server回傳的內容。
 #### 2. 審核需求，不符格式：回應對應的錯誤訊息（staus code）。
 
-
-# What is RESTful API ?
+---
+## What is RESTful API ?
 - REST: Representational State Transfer(表現層狀態轉移)
 - RESTful: 形容詞。
 - RESTful API: 具有 RESTful 風格的 API
+## RESTful API 風格特點：
 
 
 ---

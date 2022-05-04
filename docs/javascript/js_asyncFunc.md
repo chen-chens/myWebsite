@@ -1,8 +1,16 @@
 ---
 sidebar_position: 4
+id: node_intro
+title: async Func.
+tags:
+- stack
+- event loop
+- queue
+- synchronous
+- asyncronous
+- promise
+- async-await
 ---
-
-# async Func.
 
 ## Q: 為了解決什麼問題？
 ### 先來了解 Synchronous Code Execution
