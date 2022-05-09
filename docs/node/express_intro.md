@@ -97,6 +97,14 @@ Node vs Express
     ...
   );
 ```
+```js
+  app.use(
+    PATH, 
+    (req, res, next) => { next() }, 
+    (req, res, next) => {}, 
+    ...
+  );
+```
 :::info 使用 HANDLER 第三個參數 `next()`
   要接續多個 HANDLER(middleWare)，一定要使用 `next()`。
   否則，執行不會往下傳遞。
@@ -114,6 +122,8 @@ Node vs Express
     next(); 
   }
   app.HTTP METHOD(PATH, [func1, func2, func3]);
+  app.use(PATH, [func1, func2, func3]);
+
 ```
 
 ### app.route()
@@ -309,8 +319,27 @@ Node vs Express
 ## Express middleWare
 
 ### (一) Application-level middleware
-- `app.use()`
-- `app.HTTP METHOD()`
+<details>
+  <summary><strong><code>app.use(PATH, middleware function)</code></strong></summary>
+
+  - `PATH`: 只要滿足第一個 slash `"/oooo"`，其他都會執行。
+    - 例：`app.use("/user", () => {})`
+    - 符合條件：`"/user"`、`"/user/123"`、`"/user/id=456"`、`"/user/img"`
+  - `PATH`: default 為 `"/"`，故也可以寫成：
+  ```js
+    app.use((req, res, next) => {
+      ...
+      next();
+    })
+  ```
+  這樣的情況代表：不管使用者目前 URL PATH，一律都會執行。(`"/"`任何 URL條件都符合)
+
+</details>
+
+<details>
+  <summary><strong><code>app.HTTP METHOD()</code></strong></summary>
+
+</details>
 
 ### (二) Router-level middleware
 
