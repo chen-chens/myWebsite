@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-id: node_intro
+id: asyncFunc
 title: async Func.
 tags:
 - stack
