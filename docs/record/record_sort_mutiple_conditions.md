@@ -8,8 +8,21 @@
 ---
 
 ## 資料結構
-```js
-export const rowData = [
+<details>
+  <summary><strong>DataType</strong></summary>
+
+  ```typescript
+    export interface DataType {
+      id: number;
+      info: { id: string; firstName: string; lastName: string };
+      year: number;
+      subject: { title: string; score: string };
+    }
+  ```
+</details>
+
+```typescript
+export const rowData: DataType = [
   {
     id: 1,
     info: { id: "A123", firstName: "Joanna", lastName: "Chen" },
@@ -71,9 +84,39 @@ export const rowData = [
   |3.|`info.id`|如果`info.firstName` `info.lastName` 一樣，篩`info.id`|
 
 <details>
+  <summary><strong>GraggableStructure</strong></summary>
+
+  ```typescript
+    export enum FilterConfig {
+      FILTER = "filter",
+      UNFILTER = "unfilter"
+    }
+    export enum SortConfig {
+      ASC = "ASC",
+      DESC = "DESC"
+    }
+    export interface SortDataType {
+      id: string;
+      name: string;
+      sort: string;
+    }
+
+    export interface GraggableStructure {
+      sortData: {
+        [key: string]: SortDataType;
+      };
+      groups: {
+        [key: string]: { id: string; title: string; filterSortIds: string[] };
+      };
+      groupsOrder: string[];
+    }
+  ```
+</details>
+
+<details>
   <summary><strong>dragDropData</strong></summary>
 
-  ```js
+  ```typescript
     // 為了辨別同名同姓，加入個人id 識別
     export const personNameOrder = ["info.firstName", "info.lastName", "info.id"];
 
@@ -85,26 +128,30 @@ export const rowData = [
      * 科目
      */
 
-    export const initDragDropData = {
+    export const initDragDropData: GraggableStructure = {
       sortData: {
-        personName: { id: "personName", name: "姓名", sort: "ASC" },
-        year: { id: "year", name: "年度", sort: "DESC" },
-        "subject.score": { id: "subject.score", name: "分數", sort: "DESC" },
-        "subject.title": { id: "subject.title", name: "科目", sort: "ASC" }
+        personName: { id: "personName", name: "姓名", sort: SortConfig.ASC },
+        year: { id: "year", name: "年度", sort: SortConfig.DESC },
+        "subject.score": {
+          id: "subject.score",
+          name: "分數",
+          sort: SortConfig.DESC
+        },
+        "subject.title": { id: "subject.title", name: "科目", sort: SortConfig.ASC }
       },
       groups: {
         filter: {
-          id: "filter",
+          id: FilterConfig.FILTER,
           title: "加入排序",
           filterSortIds: []
         },
         unfilter: {
-          id: "unfilter",
+          id: FilterConfig.UNFILTER,
           title: "未排序",
           filterSortIds: ["personName", "year", "subject.score", "subject.title"]
         }
       },
-      groupOrder: ["filter", "unfilter"]
+      groupsOrder: [FilterConfig.FILTER, FilterConfig.UNFILTER]
     };
   ```
 </details>
@@ -174,6 +221,9 @@ export const rowData = [
 2. 年度由高到低
 3. 分數由高到低
 
+<details>
+  <summary><strong>預期資料顯示結果</strong></summary>
+
 ```js
   const data = [
     {
@@ -220,6 +270,8 @@ export const rowData = [
     },
   ];
 ```
+</details>
+
 ### How to do that?
 |順序|取值|說明|排序|
 |--|--|--|--|
@@ -230,10 +282,13 @@ export const rowData = [
 |3. 分數由高到低|`subject.score`|--|DESC|
 
 ### (一) 先確認我們拿到的篩選內容：
-```js
-  const handleClick = () => {
-    const targetFilterSortIds = dragDropData.groups["filter"].filterSortIds;
-    const sortData = targetFilterSortIds.map(sortId => dragDropData.sortData[sortId]);
+```typescript
+  const handleClick = (currentDragDropData: GraggableStructure) => {
+    const copyDragDopData: GraggableStructure = JSON.parse(
+      JSON.stringify(currentDragDropData)
+    );
+    const targetFilterSortIds: string[] = copyDragDopData.groups["filter"].filterSortIds;
+    const sortData: SortDataType[] = targetFilterSortIds.map(sortId => copyDragDopData.sortData[sortId]);
     console.log("current filter value: ", sortData);
     // ...
   };
@@ -258,10 +313,10 @@ export const rowData = [
 我們發現：篩選內容有加入姓名(`id: "personName"`)，需另外帶入辨別順序：<br />
 `const personNameOrder = ["info.firstName", "info.lastName", "info.id"];`
 
-```js
-  const handleClick = () => {
+```typescript
+  const handleClick = (currentDragDropData: GraggableStructure) => {
     // ...
-    const filterData = [];
+    const filterData: SortDataType[] = [];
       targetFilterSortIds.forEach((sortId) => {
         // highlight-start
         if (sortId === "personName") {
@@ -282,7 +337,7 @@ export const rowData = [
 
 印出資料(依序)：
 ```js
-  current filter value:  [
+  current filter value: [
     {
       id: "info.firstName"
       name: "姓名",
@@ -309,8 +364,8 @@ export const rowData = [
 ### (二) 功能拆開：
 - 判別 ASC、DESC
 
-```js
-  const compareSortValue = (sort, valueA, valueB) => {
+```typescript
+  const compareSortValue = ( sort: string, valueA: string | number, valueB: string | number ): number => {
     if(valueA < valueB){
       return sort === "ASC" ? -1 : 1
     }
@@ -346,8 +401,8 @@ export const rowData = [
 - 取得物件屬性值: 才能作比較(a, b)
 - 透過 sortData 內 id:
 
-```js
-  const findTargetValue = (targetData, dataIndex, currentValue) => {
+```typescript
+  const findTargetValue = (targetData: DataType, dataIndex: string[], currentValue: any) => {
     if (dataIndex.length === 0) {
       return currentValue;
     }
@@ -360,6 +415,7 @@ export const rowData = [
     return findTargetValue(targetData, tempIndex, findValue);
   };
 ```
+
 假設我想取得 `subject.title` 的值：([參考上面](#一-先確認我們拿到的篩選內容))
 ```js
   const testData = {
@@ -375,13 +431,13 @@ export const rowData = [
 
 印出結果：
 ```js
-  findTargetValue result:  English
+  findTargetValue result: English
 ```
 
 ### Ｑ2：來解決第二個問題 <br />我們使用 `sort()` 還需要一次性把所有篩選項目比較完，才能得到正確結果。
-```js
+```typescript
   // compareList: 一陣列，紀錄每個篩選條件的 id, sort, valueA, valueB。
-  const compareFn = (compareList) => {
+  const compareFn = (compareList: CompareListType[]) => {
     if (compareList.length === 0) {
       return 0;
     }
@@ -402,8 +458,8 @@ export const rowData = [
 ```
 
 帶入篩選條件：
-```js
-  const handleSortByConditions = (data, filterData) => {
+```typescript
+  const handleSortByConditions = (data: DataType[], filterData: SortDataType[]) => {
     const tempData = [...data];
     tempData.sort((a, b) => {
       const compareList = [];
@@ -435,6 +491,9 @@ export const rowData = [
 1. 科目由A到Z
 2. 年度由低到高
 3. 名字由Z到A
+
+<details>
+  <summary><strong>預期資料顯示結果</strong></summary>
 
 ```js
   const data = [
@@ -482,6 +541,7 @@ export const rowData = [
     },
   ];
 ```
+</details>
 
 效果符合預期：<br />
 ![效果符合預期](../../static/img/docs/record/record_sort_mutiple_conditions_target2.png)
