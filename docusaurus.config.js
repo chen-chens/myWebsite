@@ -36,6 +36,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      defaultMode: 'light',
       hideableSidebar: true,
       navbar: {
         title: 'Huei Jen Chen',

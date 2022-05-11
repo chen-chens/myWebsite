@@ -87,7 +87,7 @@
 顯示效果：
 ![顯示效果：](../../static/img/docs/record/record_moment_calc_time_result.png)
 
-### [完整 Code DEMO](https://codesandbox.io/s/practice-moment-js-diff-0ffnfr?file=/src/App.tsx)
+### [ ✎ DEMO](https://codesandbox.io/s/practice-moment-js-diff-0ffnfr?file=/src/App.tsx)
 
 ### (二) 資料庫給一時間，計算距離今天多少天
 
@@ -105,7 +105,7 @@
     const diffDays = transferMsToDays - diffYears * 365; // 扣除已算年的部分
 ```
 
-### [完整 Code DEMO](https://codesandbox.io/s/practice-moment-js-diff-in-database-5p2h07?file=/src/App.tsx)
+### [ ✎ DEMO](https://codesandbox.io/s/practice-moment-js-diff-in-database-5p2h07?file=/src/App.tsx)
 
 ---
 ## 參考資料

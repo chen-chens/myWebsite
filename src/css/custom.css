@@ -6,15 +6,28 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-primary: #2f6547;
+  --ifm-color-primary-dark: #2a5b40;
+  --ifm-color-primary-darker: #28563c;
+  --ifm-color-primary-darkest: #214732;
+  --ifm-color-primary-light: #346f4e;
+  --ifm-color-primary-lighter: #367452;
+  --ifm-color-primary-lightest: #3d835c;
+  --ifm-background-color: #ebebeb;
+
   --ifm-code-font-size: 95%;
   --basic-gap: 10px;
+}
+
+html[data-theme='dark'] {
+  --ifm-color-primary: #fafafa;
+  --ifm-color-primary-dark: #e1e1e1;
+  --ifm-color-primary-darker: #d4d4d4;
+  --ifm-color-primary-darkest: #afafaf;
+  --ifm-color-primary-light: #ffffff;
+  --ifm-color-primary-lighter: #ffffff;
+  --ifm-color-primary-lightest: #ffffff;
+  --ifm-background-color: #1b1d1d;
 }
 
 .docusaurus-highlight-code-line {
@@ -26,6 +39,9 @@
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+[data-theme='light'] .admonition.admonition-warning.alert.alert--danger{
+  background-color: #ddc8c8;
 }
 
 ul{
@@ -42,6 +58,16 @@ ul{
 ul, li{
   margin: 0;
   padding: 0;
+}
+.theme-doc-sidebar-item-link.theme-doc-sidebar-item-link-level-2.menu__list-item{
+  margin-left: 1.1rem;
+  border-left: 2px dashed var(--ifm-color-primary-darkest);
+}
+table tr:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.041);
+}
+table thead tr {
+  background-color: var(--ifm-table-stripe-background);
 }
 
 .table-wrapper{

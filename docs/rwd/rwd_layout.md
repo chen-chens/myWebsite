@@ -12,7 +12,7 @@ sidebar_position: 3
 - 分欄容器寬度 與 內容寬度 寫死，RWD 拖移效果比較硬(有斷點)。
 - 內容寬度沒有隨裝置大小變化。
 
-[DEMO 連結](https://codepen.io/chen-chens/pen/qBXOXxB)
+#### [ ✎ DEMO](https://codepen.io/chen-chens/pen/qBXOXxB)
 
 ---
 
@@ -22,7 +22,7 @@ sidebar_position: 3
 3. 資料容器依據 裝置尺寸顯示幾排，間距固定，`calc(50% - 20px)`。
 4. 解決方法一的問題，間距固定，拖移視窗無縫式伸縮內容寬度。
 
-[DEMO 連結](https://codepen.io/chen-chens/pen/JjyMWML)
+#### [ ✎ DEMO](https://codepen.io/chen-chens/pen/JjyMWML)
 
 ---
 
@@ -32,7 +32,7 @@ sidebar_position: 3
 3. 將變數套入個定公式 `calc(100% - var(--columns) - var(--gap))`
 4. 使用 `calc()` 計算，要計算到小數點後六位較精確。
 
-[DEMO 連結](https://codepen.io/chen-chens/pen/xxLWQGM?editors=1100)
+#### [ ✎ DEMO](https://codepen.io/chen-chens/pen/xxLWQGM?editors=1100)
 
 ---
 
@@ -42,7 +42,7 @@ sidebar_position: 3
 2. 分欄容器：專門用來調節欄寬。`border-box` + 間隔 `padding` 創造固定間距的效果，搭配 寬度(百分比)。
 3. 內容容器：專助於設定內容的部分。
 
-[DEMO 連結](https://codepen.io/chen-chens/pen/KKvLROL)
+#### [ ✎ DEMO](https://codepen.io/chen-chens/pen/KKvLROL)
 
 ---
 
@@ -76,7 +76,7 @@ sidebar_position: 3
   .col-12{ width: 100%; }
 ```
 
-[DEMO 連結](https://codepen.io/chen-chens/pen/yLodbyW)
+#### [ ✎ DEMO](https://codepen.io/chen-chens/pen/yLodbyW)
 
 #### 針對不同螢幕裝置，帶入不同的所屬 class，達到 RWD 的效果。
 
@@ -134,7 +134,7 @@ sidebar_position: 3
   }
 ```
 
-[DEMO 連結](https://codepen.io/chen-chens/pen/ExvqYvK)
+#### [ ✎ DEMO](https://codepen.io/chen-chens/pen/ExvqYvK)
 
 ---
 
@@ -146,7 +146,7 @@ sidebar_position: 3
 - **新增不同功能的 class 名稱**
 ![遇到的問題](../../static/img/docs/css/css_layout_nested_columns_solution.png)
 
-[DEMO 連結](https://codepen.io/chen-chens/pen/gOxVObq)
+#### [ ✎ DEMO](https://codepen.io/chen-chens/pen/gOxVObq)
 
 - **發現一個問題：巢狀隔線為了多分四欄，再加一 `row` 做分欄。**
 ![遇到的問題](../../static/img/docs/css/css_rwd_html_problem.png)
@@ -161,7 +161,7 @@ sidebar_position: 3
 ![解決辦法](../../static/img/docs/css/css_layout_padding_problem.png)
 ![解決辦法](../../static/img/docs/css/css_layout_padding_problem_solution.png)
 
-[DEMO 連結](https://codepen.io/chen-chens/pen/ExwNjgY)
+#### [ ✎ DEMO](https://codepen.io/chen-chens/pen/ExwNjgY)
 
 ---
 
@@ -171,6 +171,6 @@ sidebar_position: 3
 - 優點：在等寬的條件下，寫法更簡潔直覺。
 - 缺點：目前無法換行。
 
-[DEMO 連結](https://codepen.io/chen-chens/pen/abLJMyv)
+#### [ ✎ DEMO](https://codepen.io/chen-chens/pen/abLJMyv)
 
 ---

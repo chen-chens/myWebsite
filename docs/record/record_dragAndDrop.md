@@ -248,7 +248,7 @@ const initDragAndDropData = {
 
 ---
 ## DEMO
-[DEMO 連結](https://codesandbox.io/embed/practice-react-beautiful-dnd-typescript-fi4yxz?fontsize=14&hidenavigation=1&theme=dark)
+[ ✎ DEMO](https://codesandbox.io/embed/practice-react-beautiful-dnd-typescript-fi4yxz?fontsize=14&hidenavigation=1&theme=dark)
 
 ---
 ## 參考資源

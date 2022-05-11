@@ -483,7 +483,7 @@ export const rowData: DataType = [
 ![效果符合預期](../../static/img/docs/record/record_sort_mutiple_conditions_target1.png)
 
 ## DEMO
-[完整 DEMO](https://codesandbox.io/s/practice-sort-by-multiple-conditions-w-flexible-way-0dgg7k?file=/Demo/index.js)
+#### [ ✎ DEMO](https://codesandbox.io/s/practice-sort-by-multiple-conditions-w-flexible-way-0dgg7k?file=/Demo/index.js)
 
 ---
 ## 目標顯示 2
