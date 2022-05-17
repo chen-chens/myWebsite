@@ -15,6 +15,9 @@ React DOM會比較前後是哪個節點有更新，`針對有更新的部分作 
 
 ![React Virtual DOM](https://i2.wp.com/programmingwithmosh.com/wp-content/uploads/2018/11/lnrn_0201.png?ssl=1)[圖片來源](https://www.oreilly.com/library/view/learning-react-native/9781491929049/ch02.html) 與  [參考文章: React Virtual DOM Explained in Simple English](https://programmingwithmosh.com/react/react-virtual-dom-explained/)
 
+![Virtual DOM: ReactJS implementation](https://raw.githubusercontent.com/10Pines/ghost-storage/master/2018/08/Nodos.png)<br />
+[圖片來源](https://blog.10pines.com/2018/08/27/reactjs-virtual-dom/)
+
 剛剛提到 React DOM 節點更新，其實就是 `state` 的變化。
 但為了維護更好的效能，並不是一有`state`更新，就馬上跑去告訴Brower DOM，而是累積一部分新的`state`，再一次去統一更新Brower DOM的資料。
 所以你之後可能會發現，有些時候更新 `state`，畫面並沒有同步更新。
@@ -135,3 +138,4 @@ export default function ToDoList() {
 - [Reconciliation](https://zh-hant.reactjs.org/docs/reconciliation.html)
 - [Why doesn’t React update this.state synchronously?](https://reactjs.org/docs/faq-state.html#why-doesnt-react-update-thisstate-synchronously)
 - [Fragment](https://reactjs.org/docs/fragments.html)
+- [Virtual DOM: ReactJS implementation](https://blog.10pines.com/2018/08/27/reactjs-virtual-dom/)

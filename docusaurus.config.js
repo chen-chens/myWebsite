@@ -42,7 +42,7 @@ const config = {
         title: 'Huei Jen Chen',
         items: [
           {
-            label: 'TechDocs',
+            label: 'Tech Notes',
             type: 'doc',
             docId: 'git/git_intro',
             position: 'left',
@@ -51,12 +51,6 @@ const config = {
           //   label: 'Side Projects',
           //   to: '/projects',  
           //   position: 'left'
-          // },
-          // {
-          //   label: 'Profolio',
-          //   class: 'profolio',
-          //   to: '/profolio',
-          //   position: 'right',
           // },
           // {
           //   label: 'Email',

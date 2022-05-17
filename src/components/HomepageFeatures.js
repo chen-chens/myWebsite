@@ -1,49 +1,48 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './HomepageFeatures.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Tech Notes',
+    imgUrl: 'img/home/tech_note.png',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        What I've learned about <code>code things</code>.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Side Projects',
+    imgUrl: 'img/home/side_project.png',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        What I've tried to make <code>code things</code> come true.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
+    title: 'Ideal Life Blog',
+    imgUrl: 'img/home/life.png',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        What I've learned from life.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({imgUrl, title, description}) {
+  const imageUrl = useBaseUrl(imgUrl);
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+        <img src={imageUrl} alt={title} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
-        <p>{description}</p>
+        <p style={{color: "gray", fontWeight: 600}}>{description}</p>
       </div>
     </div>
   );

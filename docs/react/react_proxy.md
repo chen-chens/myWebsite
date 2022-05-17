@@ -9,6 +9,8 @@ sidebar_position: 10
 
 
 
+## [用React刻自己的投資Dashboard Day7 - CORS與Proxy Server](https://ithelp.ithome.com.tw/articles/10269560)
+
 
 ---
 ## 參考資源 與 筆記重點

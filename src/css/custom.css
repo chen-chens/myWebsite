@@ -15,6 +15,11 @@
   --ifm-color-primary-lightest: #3d835c;
   --ifm-background-color: #ebebeb;
 
+  --ifm-color-info-success-background : #d9e4de;
+  --ifm-color-info-contrast-background: #e1eff8;
+  --ifm-color-info-danger-background: #e7d4d4;
+
+
   --ifm-code-font-size: 95%;
   --basic-gap: 10px;
 }
@@ -40,8 +45,14 @@ html[data-theme='dark'] {
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
-[data-theme='light'] .admonition.admonition-warning.alert.alert--danger{
-  background-color: #ddc8c8;
+[data-theme='light'] .alert--danger{
+  background-color: var(--ifm-color-info-danger-background);
+}
+[data-theme='light'] .alert--success {
+  --ifm-alert-background-color: var(--ifm-color-info-success-background);
+}
+[data-theme='light'] .alert--info {
+  --ifm-alert-background-color: var( --ifm-color-info-contrast-background );
 }
 
 ul{
