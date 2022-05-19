@@ -69,7 +69,7 @@
 ### (一) 定址(Addressing): 
 - 賦予網路裝置名稱或位址。
 - 往上傳遞 TCP封包 或 UDP封包，往下傳遞至鏈接層給乙太網路。
-- 用來辨認 來源主機(Host) 與 目標主機(Host) 是否在同個子網域。
+- 用來辨認 來源主機(Host) 與 目標主機(Host) 是否在同個[子網域](#功能切割網路判斷目的地位置)。
   - 如果 來源主機(host) 與 目標主機(host) 的網路位址一樣，說明兩者在相同子網域上。
   - 如果 兩者在不同子網域上，就需要 **路由器** 幫忙。
 
@@ -89,6 +89,50 @@
 
 :::
 
+:::note <h2>子網路遮罩 (Subnet Mask)</h2>
+### 功能：切割網路、判斷目的地位置
+
+---
+
+![IP_address 網路位置 與 主機位置](../../static/video/record/record_IP_address.gif)
+:::
+
+:::note <h2>域名 (Domain Name)</h2>
+### 域名 是給人看的，IP address 是給電腦看的。
+當我在點擊網址搜尋時，我要先到 DNS 查詢該網址的 IP位置，才知道要 目標主機(Host)確切位置。
+![domain_name](../../static/img/docs/record/record_domain_name.png)
+
+---
+
+![domain name](https://w3cschoool.com/public/file/SEO/what-is-domain1.png)<br />
+[圖片來源](https://w3cschoool.com/what-is-domain)
+
+|--|名稱|說明|其他|
+|--|--|---|---|
+|`http`、`https`|HyperText Transfer Protocol|通訊協定|SSL 憑證保護<br />Secure Sockets Layer|
+|`www`          |Subdomain、Hostname (Third level domain)|子(次)網域、主機名稱|ex. `blog`|
+|`google`       |SLD: Second Level Domain|自定義名稱，會影響SEO。|--|
+|`com`          |TLD: Top Level Domain|標示網站的類型。<br />`com`代表 公司行號或營利單位。|`edu`代表 學校單位。<br />`gov`代表 政府機關。|
+
+---
+### DNS (Domain Name Space)
+- 樹狀階層(hierarchy)架構
+![Domain Name System Server Hierarchy](https://www.seomining.com/web-technologies/module4/images/dns-root-server.jpg)
+[圖片來源](https://www.seomining.com/web-technologies/module4/top-level-domains.php)
+
+---
+### DNS Cache
+- 功能：
+  #### 暫存最近造訪的網站IP位置，當每次輸入網址搜尋時，會先到 cache 查詢 有沒有對應 IP，有的話就不用再到 remote DNS 查詢，比較省時。
+  > The DNS cache attempts to speed up the process even more by handling the name resolution of recently visited addresses before the request is sent out to the internet.
+
+  > Before a browser issues its requests to the outside network, the computer intercepts each one and looks up the domain name in the DNS cache database. **The database contains a list of all recently accessed domain names and the addresses that DNS calculated for them the first time a request was made.**
+
+- [什麼是 DNS 快取記憶體中毒？ | DNS 詐騙](https://www.cloudflare.com/zh-tw/learning/dns/dns-cache-poisoning/)
+---
+
+
+:::
 
 :::tip <h2>port</h2>
 ### IP 相當於 「電話號碼」，port 相當於「分機號碼」。
@@ -106,21 +150,8 @@
 - `Ipconfig getifaddr en1` : The system will return the IP address for a wired Ethernet connection.
 :::
 
-:::note <h2>子網路遮罩 (Subnet Mask)</h2>
-### 功能：切割網路、判斷目的地位置
-
----
-
-![IP_address 網路位置 與 主機位置](../../static/video/record/record_IP_address.gif)
-
-:::note <h2>域名 (Domain Name)</h2>
-### 域名 是給人看的，IP adress 是給電腦看的。
-
----
 
 
-
-:::
 
 ---
 ## 傳輸層 - Transport
@@ -150,3 +181,5 @@
 - [子網路遮罩是什麼？](https://nordvpn.com/zh-tw/blog/ziwanglu-zhezhao/)
 - [搞懂目錄位置 & 網路基礎概論](https://yakimhsu.com/project/project_w1_Networking_Introduction.html)
 - [從傳紙條輕鬆學習基本網路概念](https://hulitw.medium.com/learning-tcp-ip-http-via-sending-letter-5d3299203660)
+- [DNS Caching and How It Makes Your Internet Better](https://www.lifewire.com/what-is-a-dns-cache-817514)
+- [What Is a Router and How Does It Work?](https://www.lifewire.com/what-is-a-router-2618162)
