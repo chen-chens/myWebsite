@@ -3,6 +3,12 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
-  background-color: #011318;
+}
+/* .featuresTitle{
+  color: #e5f0f0;
+} */
+.featuresDescription{
+  color: #979797;
+  font-weight: 600;
 }
 

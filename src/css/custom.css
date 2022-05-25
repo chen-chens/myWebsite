@@ -85,7 +85,6 @@ table thead tr {
   max-width: 100%;
   overflow-x: scroll;
 }
-
 .table-wrapper table th:first-of-type {
   width: 18%;
 }
@@ -118,27 +117,12 @@ table thead tr {
   display: none;
 }
 
-/* .navbar__items > .profolio {
-  display: block;
-  background-color: var(--ifm-color-primary);
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: #fff; 
-} */
-
-.footer__items {
-  display: flex;
-  justify-content: center;
-}
-.footer__item {
-  margin: 0 10px;
-}
-.footer__item a {
-  display: block;
+.main-wrapper{
+  /* background-color: #011318; */
 }
 
 
-/* projects */
+/* ========================== side projects ========================== */
 .projects {
   padding: 10px;
 }

@@ -35,3 +35,4 @@ https://www.google.com/search?q=momo&oq=mom&aqs=chrome.0.69i59j69i57j69i59l2j0i1
 ## 其他
 - [【1 月最新】前端 100 问：能搞懂 80% 的请把简历给我](https://juejin.cn/post/6844903885488783374)
 - [80% 应聘者都不及格的 JS 面试题](https://juejin.cn/post/6844903470466629640)
+- [[番外篇] 解 LeetCode 之前](https://ithelp.ithome.com.tw/articles/10213928)
