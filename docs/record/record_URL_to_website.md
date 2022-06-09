@@ -10,12 +10,9 @@
 
 待完成項目：
 - DNS parse domain name
-- http 協議幹嘛用的 //
-- SSL 在哪個架構上 //
 - IP address 是把 MAC address 拆解成 來源IP 與 目標IP 嗎
 - IP_address 網路位置 與 主機位置
 - TCP 
-
 
 ---
 
@@ -238,8 +235,9 @@
 ---
 ## 傳輸層 - Transport
 
-
-### TCP 三次握手
+### TCP (Transmission Control Protocol)
+#### 定義傳輸方式
+#### TCP 三次握手
 - 目的：確認雙方(client-side/server-side) 發收 與 接收 管道暢通。
 ![TCP 三次握手](../../static/video/record/record_TCP_three_check.gif)
 
@@ -271,11 +269,26 @@
       <td>客戶端 與 伺服器 溝通的附加信息。</td>
       <td>
           <ul>
-            <li><code>token</code> : 客戶端 送出請求中，目前沒遇到問題。</li>
+            <li><code>authorization</code> : <code>Bearer token</code></li>
+            <li>
+              <code>Content-type</code> : <br />告知傳輸內容是什麼類型的資料。
+              <ul>
+                <li><code>application/json</code></li>
+                <li><code>text/html; charset=UTF-8</code></li>
+                <li><code>multipart/form-data</code></li>
+              </ul>
+            </li>
+            <li><code>Host</code> : <code>IP address:port</code></li>
+            <li><code>Origin</code> : <code>https://www.example.com</code></li>
             <li><code>cache-control</code> : 新增資料。</li>
             <li><code>cookie</code> : 重新導向至 新URL。</li>
-            <li><code>content-type</code> : Request URL 找不到對應 Server。</li>
-            <li><code>500</code> : 伺服器端發生未知或無法處理的錯誤。</li>
+            <li><code>user-agent</code> : 客戶端是從哪裏發送。</li>
+            <li><code>accept</code> : 接受回傳的資料類型。
+              <ul>
+                <li><code>text/plain</code> : 純文字</li>
+                <li><code>image/*</code> : 任一類型的圖案檔。<br /><code>image/png</code><code>image/jpg</code><code>image/svg</code></li>
+              </ul>
+            </li>
           </ul>
       </td>
     </tr>
@@ -338,6 +351,9 @@
             <li><code>100</code> : 客戶端 送出請求中，目前沒遇到問題。</li>
             <li><code>200</code> : 成功回應。</li>
             <li><code>301</code> : 重新導向至 新URL。</li>
+            <li><code>400</code> : Bad request，請求資料格式錯誤。</li>
+            <li><code>401</code> : <br />Unauthorized，需要授權以回應請求，像是 登入 <code>token</code>。</li>
+            <li><code>403</code> : <br />Forbidden，用戶端並無訪問權限，伺服器 知道 我是誰，但是我沒有得到授權，拒絕回傳資料。</li>
             <li><code>404</code> : Request URL 找不到對應 Server。</li>
             <li><code>500</code> : 伺服器端發生未知或無法處理的錯誤。</li>
           </ul>
@@ -348,8 +364,24 @@
 
 :::
 
----
+:::tip
+### `http` vs. `https`
+![record_http_concern_concept](../../static/img/docs/record/record_http_concern_concept.png)
+![record_https_concept](../../static/img/docs/record/record_https_concept.png)
 
+---
+### SSL/TLS
+- #### SSL (Secure Sockets Layer)
+- #### TLS (Transport Layer Security)
+- [詳細介紹：SSL/TLS](https://hpbn.co/transport-layer-security-tls/)
+- [SSL/TLS、对称加密和非对称加密和TLSv1.3](https://zhuanlan.zhihu.com/p/345943705)
+
+![SSL/TLS Layer](https://hpbn.co/assets/diagrams/9873c7441be06e0b53a006aac442696c.svg)
+[圖片來源](https://hpbn.co/transport-layer-security-tls/)
+
+:::
+
+---
 ![Connect info](https://signal.avg.com/hs-fs/hubfs/Blog_Content/Avg/Signal/AVG%20Signal%20Images/What%20is%20TCPIP%20(Signal)/TCP-IP.png?width=2640&name=TCP-IP.png)
 ![兩個網際網路主機通過兩個路由器和對應的層連接。](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/IP_stack_connections.svg/800px-IP_stack_connections.svg.png)
 [圖片來源](https://zh.wikipedia.org/zh-tw/TCP/IP%E5%8D%8F%E8%AE%AE%E6%97%8F#/media/File:IP_stack_connections.svg)
