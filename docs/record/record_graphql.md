@@ -68,6 +68,9 @@ query AccountsQuery($query: AccountQuery){
 
 ```
 
+![record_graphQL_intro_query](../../static/img/docs/record/record_graphQL_intro_query.png)
+
+
 #### mutation
 
 ```
@@ -207,8 +210,34 @@ reply:
     ]
   }
 }
+```
+
+重複寫法可改成 `fragment`：
 
 ```
+  fragment responseData on 回傳的物件型別{
+    id
+    listValue
+  }
+
+  query PickListsByName{
+    account_type: getPicklistsByName(listName: "account_type"){
+      ...responseData
+    }
+    
+    customer_priority: getPicklistsByName(listName: "customer_priority"){
+      ...responseData
+    }
+    
+    industry: getPicklistsByName(listName: "industry"){
+      ...responseData
+    }
+  }
+```
+
+
+
+![record_graphQL_intro](../../static/img/docs/record/record_graphQL_intro.png)
 
 ---
 

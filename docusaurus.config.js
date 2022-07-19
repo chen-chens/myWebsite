@@ -4,17 +4,18 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-// /** @type {import('@docusaurus/types').Config} */
+/** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Chen Huei Jen',
   tagline: 'Front-End Developer',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: 'https://chen-chens.github.io',
+  baseUrl: '/chen-chens/myWebsite/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'chen-chens', // Usually your GitHub org/user name.
   projectName: 'myWebsite', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
 
   presets: [
     [
