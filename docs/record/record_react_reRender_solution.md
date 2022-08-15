@@ -4,7 +4,6 @@
   title: How to reduce React unnecessary re-render?
   tags:
     - React
-    - 
 ---
 
 useState 放到對應 component

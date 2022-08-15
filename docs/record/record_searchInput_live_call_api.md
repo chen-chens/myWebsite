@@ -4,7 +4,6 @@
   title: How to prevent search input from calling too much request?
   tags:
     - setTimeout()
-    - 
 ---
 
 - `onblur`: trigger event when user leaves the input field.
