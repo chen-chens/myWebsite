@@ -45,11 +45,14 @@ React 提供 useState方法，讓我們可以輕易操控資料變化。我們�
 還有，React 用 `function component` 回傳 React element，而我們也得以在element操作一些變數。
 
 :::note
-`component`命名開頭都是大寫，用來與 HTML標籤 做區別。
+- `component`命名開頭都是大寫，用來與 HTML標籤 做區別。
 :::
 
 :::note
-state is immutable. 不可以直接對state操作，如果要改變state :
+- `useState` returns an array. We use array destructuring to access : `state`(value) and `setState`.
+  - `state`: immutable value
+  - `setState`: function of changing the value
+- state is immutable. 不可以直接對state操作，如果要改變state :
   - 使用setState()方法
   - 拷貝state，在拷貝內執行修改，最後還是要放回setState()
 :::
