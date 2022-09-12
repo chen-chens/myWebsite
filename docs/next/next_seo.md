@@ -28,7 +28,7 @@ tags:
 ---
 
 ## Overview of Search Engine Work
-#### (一) Crawling
+### (一) Crawling
 - Crawling Queue
 - Send Http request By URL
     - `2XX` : Parse HTML
@@ -77,14 +77,14 @@ You can trigger a 308 redirect in Next.js by returning a redirect instead of pro
 
 :::
 
-#### (二) Indexing
+### (二) Indexing
 - Meet criteria: Build Index
 - Store contents
 
-#### (三) Rendering
+### (三) Rendering
 - Rendering
 
-#### (四) Ranking
+### (四) Ranking
 - 
 
 
