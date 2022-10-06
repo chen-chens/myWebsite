@@ -250,6 +250,39 @@ reply:
 
 - [GraphQL vs REST APIs | What’s the Best Kind of API?](https://codedamn.com/news/backend/graphql-vs-rest-apis-whats-the-best-kind-of-api)
 
+
+---
+## TBD
+### error message
+- status: 400 (Bad Request)
+```
+[{"message":"transport not supported"}],"data":null}
+```
+### solved
+set headers: replace `"content-type"` with `"Content-Type"`
+
+:::warning (X) Wrong
+
+```
+  new GraphQLClient(rootUrl, { 
+    headers:  {"content-type": "application/json"}
+  })
+```
+:::
+
+:::info (O) Right
+
+```
+  new GraphQLClient(rootUrl, { 
+    headers:  {"Content-Type": "application/json"}
+  })
+```
+:::
+
+---
+
+
+
 ---
 ## 參考資源
 - [4 Simple Ways to Call a GraphQL API](https://www.apollographql.com/blog/graphql/examples/4-simple-ways-to-call-a-graphql-api/)
