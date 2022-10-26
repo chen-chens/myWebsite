@@ -21,7 +21,7 @@ sidebar_position: 10
 - [Why you should use a proxy server with Create React App](https://blog.logrocket.com/why-you-should-use-proxy-server-create-react-app/)
     - Client ------------------(API request)---------------> Proxy server -----(1.Extra Protection from hacker attack / 2.Transmit request URL / 3.cache request)-----> Server
     - Client <-----------------(API request)---------------- Proxy server <-----(server response)----- Server
-    - Client <-----(http://localhost.XXX/search?id=123)-----> Proxy server <-----(https://www.XXX.com/search?id=123)-----> Server
+    - Client <-----(`http://localhost.XXX/search?id=123`)-----> Proxy server <-----(`https://www.XXX.com/search?id=123`)-----> Server
     - 延伸：
         1. CORS
         2. 同源政策
