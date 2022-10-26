@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Chen Huei Jen',
   tagline: 'Front-End Developer',
-  url: 'https://chen-chens.github.io',
+  url: 'https://github.com',
   baseUrl: '/chen-chens/myWebsite/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
