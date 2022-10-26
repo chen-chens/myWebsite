@@ -9,7 +9,7 @@ const config = {
   title: 'Chen Huei Jen',
   tagline: 'Front-End Developer',
   url: 'https://github.com',
-  baseUrl: '/chen-chens/myWebsite/',
+  baseUrl: '/myWebsite/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
