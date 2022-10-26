@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkchenchens=self.webpackChunkchenchens||[]).push([[1222],{4802:function(e){e.exports=JSON.parse('{"name":"API","permalink":"/myWebsite/docs/tags/api","docs":[{"id":"node/node_api","title":"What is API","description":"Youtube: What is API?","permalink":"/myWebsite/docs/node/node_api"}],"allTagsPath":"/myWebsite/docs/tags"}')}}]);

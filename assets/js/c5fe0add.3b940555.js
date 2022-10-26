@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkchenchens=self.webpackChunkchenchens||[]).push([[2635],{592:function(s){s.exports=JSON.parse('{"name":"DOM","permalink":"/myWebsite/docs/tags/dom","docs":[{"id":"javascript/DOM","title":"DOM","description":"What is DOM ?","permalink":"/myWebsite/docs/javascript/DOM"}],"allTagsPath":"/myWebsite/docs/tags"}')}}]);
