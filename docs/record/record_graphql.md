@@ -279,6 +279,9 @@ set headers: replace `"content-type"` with `"Content-Type"`
 ```
 :::
 
+- 參考資料：
+- [When testing with gin it returns 400 ("transport not supported")](https://github.com/99designs/gqlgen/issues/1450)
+
 ---
 
 
@@ -287,3 +290,4 @@ set headers: replace `"content-type"` with `"Content-Type"`
 ## 參考資源
 - [4 Simple Ways to Call a GraphQL API](https://www.apollographql.com/blog/graphql/examples/4-simple-ways-to-call-a-graphql-api/)
 
+[圖片來源](../../static/img/docs/record/record_urlAndport.png)
