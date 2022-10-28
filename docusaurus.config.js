@@ -31,9 +31,6 @@ const config = {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
-    ],
-    [
-      '@docusaurus/preset-classic',
       {
         googleAnalytics: {
           trackingID: 'G-ENE9EHMPY4',
