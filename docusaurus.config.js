@@ -31,12 +31,12 @@ const config = {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
-      {
-        googleAnalytics: {
-          trackingID: 'G-ENE9EHMPY4',
-          anonymizeIP: true,
-        },
-      },
+      // {
+      //   googleAnalytics: {
+      //     trackingID: 'G-ENE9EHMPY4',
+      //     anonymizeIP: true,
+      //   },
+      // },
     ],
   ],
   

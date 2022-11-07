@@ -188,8 +188,183 @@ sidebar_position: 3
 
 ---
 
+## (四) 將更新內容存錯 `branch`
+### 在錯 `branch`更新內容，更新資料還沒有 `commit`，也還沒存到遠端
+  - 正確 `branch` : `master`
+  - 錯誤 `branch` : `test-file-viewer`
+  - 在 `test-file-viewer`更新內容，還沒 commit
 
-## (四) `git reset`、`git revert`、`git rebase`、`git restore` 差在哪裡？
+<details>
+  <summary>
+    <strong>1. <code>git add .</code> : 將更新內容存到暫存</strong>
+  </summary>
+
+  ```
+    git add .
+  ```
+</details>
+
+<details>
+  <summary>
+    <strong>2. <code>git stash</code> : 將暫存文件 提交至 git 暫存區</strong>
+  </summary>
+
+  ```
+    git stash
+  ```
+</details>
+
+<details>
+  <summary>
+    <strong>3. <code>git checkout 正確branch</code> : 切換至 正確分支</strong>
+  </summary>
+
+  ```
+    git checkout master
+  ```
+</details>
+
+
+<details>
+  <summary>
+    <strong>4. <code>git stash pop</code> : 將剛剛暫存在 git暫存區的內容 拿出來</strong>
+  </summary>
+
+  ```
+    git stash pop
+  ```
+</details>
+
+接續在正確分支執行動作。 
+
+
+### 將更新commit存錯 `branch`，更新資料還沒有存到遠端
+  - 正確 `branch` : `master`
+  - 錯誤 `branch` : `test-file-viewer`
+  - 更新內容存到 `test-file-viewer`，已 commit
+
+<details>
+  <summary>
+    <strong>1. <code>git checkout 錯誤 branch</code> : 切換至 錯誤分支</strong>
+  </summary>
+
+  ```
+    git checkout test-file-viewer
+  ```
+    
+  result reference:
+  ```
+    Switched to branch 'test-file-viewer'
+  ```
+</details>
+
+<details>
+  <summary>
+    <strong>2. <code>git reset HEAD~1</code> : 錯誤分支 恢復 最後一次 commit 至 暫存區</strong>
+  </summary>
+
+  ```
+    git reset HEAD~1
+  ```
+
+  result reference:
+  ```
+    Unstaged changes after reset:
+    M       src/i18n/en.js
+    M       src/i18n/zh-TW.js
+    M       src/pages/account/accountQuery/index.tsx
+    M       src/pages/contact/contactQuery/index.tsx
+    M       src/pages/lead/leadQuery/index.tsx
+    M       src/pages/opportunity/opportunityQuery/index.tsx
+    M       src/pages/opportunity/opportunityQuery/master/index.tsx
+  ```
+</details>
+
+<details>
+  <summary>
+    <strong>3. <code>git stash</code> : 將暫存文件 提交至 git 暫存區</strong>
+  </summary>
+
+  ```
+    git stash
+  ```
+  
+  result reference:
+  ```
+    Saved working directory and index state WIP on 錯誤分支: 錯誤分支目前最新commitId 錯誤分支目前最新commit message
+  ```
+</details>
+
+<details>
+  <summary>
+    <strong>4. <code>git checkout 正確branch</code> : 切換至 正確分支</strong>
+  </summary>
+
+  ```
+    git checkout master
+  ```
+
+  result reference:
+  ```
+    Switched to branch 'master'
+    Your branch is up to date with 'origin/master'.
+  ```
+</details>
+
+<details>
+  <summary>
+    <strong>5. <code>git stash pop</code> : 將剛剛暫存在 git暫存區的內容 拿出來</strong>
+  </summary>
+
+  ```
+    git stash pop
+  ```
+
+  result reference:
+  ```
+    Auto-merging src/i18n/zh-TW.js
+    Auto-merging src/i18n/en.js
+    On branch master
+    Your branch is up to date with 'origin/master'.
+
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   src/i18n/en.js
+            modified:   src/i18n/zh-TW.js
+            modified:   src/pages/account/accountQuery/index.tsx
+            modified:   src/pages/contact/contactQuery/index.tsx
+            modified:   src/pages/lead/leadQuery/index.tsx
+            modified:   src/pages/opportunity/opportunityQuery/index.tsx
+            modified:   src/pages/opportunity/opportunityQuery/master/index.tsx
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+    Dropped refs/stash@{0} (e6005c9277a3373f872fba6c3c1a4b57989d32c0)
+  ```
+</details>
+
+接續在正確分支執行動作。 
+
+### 將更新commit存錯 `branch`，且已更新資料至遠端
+  - 正確 `branch` : `master`
+  - 錯誤 `branch` : `test-file-viewer`
+  - 更新內容存到 `test-file-viewer`，已 commit，已 push 至 遠端
+
+#### 將 上述 1 ~ 5 步驟執行一遍，另外加上：
+
+<details>
+  <summary>
+    <strong>6. <code>git push origin 錯誤分支-f </code> : 強迫將 錯誤分支內容更新同本地端 (本地端已移除錯誤更新)</strong>
+  </summary>
+
+  ```
+    git push origin test-file-viewer-f
+  ```
+</details>
+
+---
+
+## (五) `git reset`、`git revert`、`git rebase`、`git restore` 差在哪裡？
 
 |指令|官網敘述|用途|是否會新增commit|適用時機|如果反悔資料救得回來嘛|
 |--|--|--|--|--|--|
@@ -201,7 +376,7 @@ sidebar_position: 3
 ---
  
 
-## (五) `git log`、`git reflog` 差在哪裡？
+## (六) `git log`、`git reflog` 差在哪裡？
 
 <details>
   <summary><strong>git log</strong></summary>
