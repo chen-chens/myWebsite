@@ -235,7 +235,7 @@ sidebar_position: 3
   ```
 </details>
 
-接續在正確分支執行動作。 
+#### 接續在正確分支執行動作。 
 
 
 ### 將更新commit存錯 `branch`，更新資料還沒有存到遠端
@@ -343,7 +343,7 @@ sidebar_position: 3
   ```
 </details>
 
-接續在正確分支執行動作。 
+#### 接續在正確分支執行動作。 
 
 ### 將更新commit存錯 `branch`，且已更新資料至遠端
   - 正確 `branch` : `master`
@@ -370,7 +370,7 @@ sidebar_position: 3
 |--|--|--|--|--|--|
 |`reset`|Reset current HEAD to the specified state|--|--|--|`reset`的三種模式都救得回來（`--mixed` `--soft` `--hard`）|
 |`rebase`|Reapply commits on top of another base tip|修正歷史紀錄|--|--|--|
-|`revert`|Revert some existing commits|復原至某版本|Ｏ|已放上遠端，而且與他人協作|--|
+|`revert`|Revert some existing commits|復原至某版本|Ｏ|已放上遠端，而且與他人協作|--|--|
 |`restore`|Restore working tree files|--|--|--|--|
 
 ---
@@ -439,7 +439,7 @@ sidebar_position: 3
 ### 參考資源
 - [【狀況題】剛才的 Commit 後悔了，想要拆掉重做…](https://gitbook.tw/chapters/using-git/reset-commit)
 - [檔案狀態](https://zlargon.gitbooks.io/git-tutorial/content/file/status.html)
-- [[CLI] Git 指令](https://pjchender.dev/app/cli-git/)
+- [CLI Git 指令](https://pjchender.dev/app/cli-git/)
 - [Git 2.23 Adds Switch and Restore Commands](https://www.infoq.com/news/2019/08/git-2-23-switch-restore/)
 
 
