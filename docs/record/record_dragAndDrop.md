@@ -1,7 +1,7 @@
 ---
   sidebar_position: 7
   id: record_dragAndDrop
-  title: react-beautiful-dnd 筆記
+  title: react-beautiful-dnd Record
   tags:
     - Raect
     - react-beautiful-dnd

@@ -1,7 +1,7 @@
 ---
   sidebar_position: 17
   id: record_useEffect_render_order
-  title: useEffect render 順序
+  title: useEffect render Order
   tags:
     - react
     - useEffect
