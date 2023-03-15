@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 id: node_record
 title: Node 錯誤訊息紀錄 與 解法
 tags:

@@ -102,6 +102,102 @@ tags:
 *** # `module.exports` 會覆蓋掉 `exports.屬性名稱` 的寫法***
 :::
 
+---
+
+## 開啟本地端 Server
+
+```js
+const http = require('http')
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {'Content-type': 'text/plain'})
+    res.write("<h1>I got you!!!</h1>")
+    res.end()
+})
+
+server.listen(8888)
+```
+#### 紀錄
+- 引入 `Node.js` 提供的模組 `http`
+- 使用 `http.createServer()` 方法，開啟伺服器，參數為一 function。
+- 該 function 有兩參數：`req` (Client-side),`res` (Server-side)。
+- Server 結束回覆，要使用 `res.end()` 做結尾。
+- 啟動 Server，要執行 `http.createServer(...).listen(8888)` 才算完成。
+- `{'Content-type': 'OOO'}` 代表 Server 回傳的資料格式，瀏覽器會透過格式做不同的渲染處理。 
+
+:::success `{'Content-type': 'OOO'}` 代表 Server 回傳的資料格式，瀏覽器會透過格式做不同的渲染處理。 
+- #### `{'Content-type': 'text/plain'}` 瀏覽器渲染結果
+![{'Content-type': 'text/plain'} 瀏覽器渲染結果](../../static/img/docs/node/node_content_type_A.png)
+
+---
+- #### `{'Content-type': 'text/html'}` 瀏覽器渲染結果
+![{'Content-type': 'text/html'} 瀏覽器渲染結果](../../static/img/docs/node/node_content_type_B.png)
+:::
+
+---
+## `NPM`
+當我們要完成一項專案時，我們會使用到：
+- #### `Node.js` 提供核心模組。
+- #### 其他開發者提供好用的套件，我們會安裝依賴到專案使用，提升開發效率。
+
+而 `NPM` 就用來管理專案中安裝的各種依賴庫。
+
+引用其他套件的方法，也是 用 `require()`。
+
+### `package.json` 是做什麼用的？
+- #### `npm` 會透過 `package.json` 紀錄的內容，作為專案內部依賴控管的依據。
+- #### `package.json` 主要內容包含:
+    - 專案名稱
+    - 專案版本
+    - 使用依賴 與 該依賴 版本號
+        - 開發使用的依賴：像是 型別
+    - 執行專案指令
+### 如何建立 `package.json`？
+- 開啟 CLI 或 使用 VScode 開啟專案
+- 使用 `cd` 將 CLI 指向專案路徑（使用 VScode 下的終端機，路徑已經在專案底下）
+- 執行 `npm init`，回答指令問題後，該專案就有一 `package.json`
+
+```js title="package.json"
+{
+  "name": "practice_node_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joanna",
+  "license": "ISC"
+}
+```
+
+### 安裝套件 `Express`
+
+- 指令(Mac) : `sudo npm install express --save`
+- 依賴資訊會在兩個地方看到：
+    - `package.json` : 紀錄目前專案載入的 `express` 版本號。
+    - `node_module`  : 紀錄 `express`
+        - 如果要使用 `express`，就必須把對應的依賴也一起安裝在專案下，才能使用。
+
+```js title="package.json"
+{
+  "name": "practice_node_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joanna",
+  "license": "ISC",
+  // highlight-start
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+  // highlight-end
+}
+
+```
 
 --- 
 ## Reference Sources:
