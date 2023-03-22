@@ -135,71 +135,65 @@ server.listen(8888)
 :::
 
 ---
-## `NPM`
-當我們要完成一項專案時，我們會使用到：
-- #### `Node.js` 提供核心模組。
-- #### 其他開發者提供好用的套件，我們會安裝依賴到專案使用，提升開發效率。
+## Node : `__dirname` `__filename` `path`
 
-而 `NPM` 就用來管理專案中安裝的各種依賴庫。
+- `__dirname` : 目前執行檔案的該**資料夾路徑**
+- `__filename` : 目前執行檔案的該**檔案路徑**
 
-引用其他套件的方法，也是 用 `require()`。
-
-### `package.json` 是做什麼用的？
-- #### `npm` 會透過 `package.json` 紀錄的內容，作為專案內部依賴控管的依據。
-- #### `package.json` 主要內容包含:
-    - 專案名稱
-    - 專案版本
-    - 使用依賴 與 該依賴 版本號
-        - 開發使用的依賴：像是 型別
-    - 執行專案指令
-### 如何建立 `package.json`？
-- 開啟 CLI 或 使用 VScode 開啟專案
-- 使用 `cd` 將 CLI 指向專案路徑（使用 VScode 下的終端機，路徑已經在專案底下）
-- 執行 `npm init`，回答指令問題後，該專案就有一 `package.json`
-
-```js title="package.json"
-{
-  "name": "practice_node_project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Joanna",
-  "license": "ISC"
-}
+資料夾結構：
+```
+- test
+    - app.js
 ```
 
-### 安裝套件 `Express`
+執行程式碼：
+```js title="test/app.js"
 
-- 指令(Mac) : `sudo npm install express --save`
-- 依賴資訊會在兩個地方看到：
-    - `package.json` : 紀錄目前專案載入的 `express` 版本號。
-    - `node_module`  : 紀錄 `express`
-        - 如果要使用 `express`，就必須把對應的依賴也一起安裝在專案下，才能使用。
-
-```js title="package.json"
-{
-  "name": "practice_node_project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Joanna",
-  "license": "ISC",
-  // highlight-start
-  "dependencies": {
-    "express": "^4.18.2"
-  }
-  // highlight-end
-}
+__dirname: "/Users/chenhuizhen/practice_node_project/test"
+__filename: "/Users/chenhuizhen/practice_node_project/test/app.js"
 
 ```
+
+```js title="使用 Node.js 提供的 path 取得路徑資訊"
+const path = require('path')
+
+// 回傳指定路徑下的資料夾名稱：
+console.log("🚀 path.dirname:", path.dirname('/level_1/level_2/file.js'))  
+// 🚀 path.dirname: /level_1/level_2
+
+
+// 回傳指定路徑下的檔案名稱：
+console.log("🚀 path.basename:", path.basename('/level_1/level_2/file.js')) 
+// 🚀 path.basename: file.js
+
+
+// 回傳指定路徑下的檔案副檔名：
+console.log("🚀 path.extname:", path.extname('/level_1/level_2/file.js'))   
+// 🚀 path.extname: .js
+
+
+// 回傳指定的合併路徑：
+console.log("🚀 path.join:", path.join(__dirname,'123.js'))  
+// 🚀 path.join: /Users/chenhuizhen/practice_node_project/test/123.js
+
+
+// 回傳指定路徑的物件懶人包：
+console.log("🚀 path.parse:", path.parse('/level_1/level_2/file.js'))  
+// 🚀 path.parse: {root: '/', dir: '/level_1/level_2', base: 'file.js', ext: '.js', name: 'file'}
+
+```
+
+:::success `__dirname` 與 `path.diranme()` 差別？
+
+||`__dirname`|`path.diranme()`|
+|--|--|--|
+|共同點|都是獲取當前頁面資料夾路徑。<br />返回的是指定路徑的目錄名稱，不包括檔案名稱。|
+|差異點|一全局變量，任一檔案下皆可獲取，不需引入。|一函式，帶入路徑參數，須引入 `path` module。|
+
+:::
 
 --- 
 ## Reference Sources:
 - [BOM Browser Object Model](https://www.youtube.com/watch?v=kll5lN4Puhk)
 - [DAY 2 BOM 、 DOM 是什麼？](https://ithelp.ithome.com.tw/articles/10235079)
+- [[node] Path Module](https://pjchender.dev/nodejs/node-path/)
