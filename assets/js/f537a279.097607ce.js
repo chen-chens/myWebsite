@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkchenchens=self.webpackChunkchenchens||[]).push([[9970],{7498:function(e){e.exports=JSON.parse('{"name":"V8","permalink":"/myWebsite/docs/tags/v-8","docs":[{"id":"node/node_intro","title":"Node Intro","description":"What is V8 ?","permalink":"/myWebsite/docs/node/node_intro"}],"allTagsPath":"/myWebsite/docs/tags"}')}}]);
