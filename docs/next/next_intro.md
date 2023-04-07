@@ -49,9 +49,9 @@ and provides additional structure, features, and optimizations for your applicat
 ### 補充整理: CSR vs. SSR vs. SSG
 |--|全名|props|cons|備註|
 |--|--|--|--|--|
-|CSR|Client-Side Rendering |第一次載入 JS bundle 較慢，之後的頁面瀏覽較快。                     |不利SEO 與 效能                            |爬蟲可以爬，但不適合內容變動快速的網站。|
-|SSR|Server-Side Rendering |SEO佳。 <br/>`server response complete HTML`                   |每頁都由 Server render, server loading 重。|--|
-|SSG|Static-Side Generation|**在 build 時就產生資料，預載速度最快。**`server response complete HTML`|只適合**大部分靜態**的網頁使用，常變更建議用SSR。   |--|
+|CSR|Client-Side Rendering |第一次載入 JS bundle 較慢，之後的頁面瀏覽較快。                         |不利SEO 與 效能                            |--|
+|SSR|Server-Side Rendering |SEO與效能 較 CSR 佳。 <br/>`server response dynamically generated HTML/CSS/JS`|每頁都由 Server render, server loading 重。|需搭配 `動態 sitemap、robots.txt`幫助 SEO|
+|SSG|Static-Side Generation|**在 build 時就產生資料，預載速度最快。**`server response complete static HTML/CSS/JS`|只適合**大部分靜態**的網頁使用，常變更建議用SSR。|爬蟲可以爬，但不適合內容變動快速的網站。|
 
 ---
 ### Next.js 支援：CSR / SSR / SSG
@@ -109,7 +109,7 @@ Each page is associated with a route based on its file name.
         weight: number;
     }
 
-    // Client-Side executuon
+    // Client-Side executuon when user calls request.
     const Post = ({data}:{data: ResponseType}) => {
 
         return(
@@ -126,7 +126,7 @@ Each page is associated with a route based on its file name.
     export default Post;
 
 
-    // Server-Side executuon
+    // Server-Side executuon when user calls request.
     export const getServerSideProps: GetServerSideProps = async (context) => {
         const { id } = context.query // 取得 URL 上變動的 id
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then((data) => data.json())
@@ -136,6 +136,51 @@ Each page is associated with a route based on its file name.
         }
     }
 ```
+
+:::caution
+- `getServerSideProps` only runs on server-side and never runs on the browser.
+- `getServerSideProps` can only be exported from a page. You can’t export it from non-page files.
+- Note that you must export `getServerSideProps` as a standalone function — it will not work if you add `getServerSideProps` as a property of the page component.
+- You should use `getServerSideProps` **only if you need to render a page whose data must be fetched at request time**. If you do not need to render the data during the request, then you should consider fetching data on the client side or `getStaticProps`.
+- If an error is thrown inside `getServerSideProps`, it will show the pages/500.js file.
+
+
+- [Next.js 官網](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props#when-does-getserversideprops-run)
+
+---
+
+<details>
+  <summary><strong>Q: `getServerSideProps()` 是server side 執行，執行時機是 build 的時候嗎 ?</strong></summary>
+    A: `getServerSideProps()` 不是在 build 時執行，而是在每次 client 端 request 時都會執行。
+</details>
+<details>
+  <summary><strong>Q: `getServerSideProps()` 跟在 client side call API 有什麼差別？</strong></summary>
+    A: 
+    - 執行位置：`getServerSideProps()` 是在 server side 執行，而在 client side 呼叫 API 則是在 client side 執行。
+
+    - 效能：由於 `getServerSideProps()` 是在 server side 執行，因此可以利用 server side 的計算資源和 caching，較能提高效能。而在 client side 呼叫 API 則需要等待 server 回應，並可能需要考慮跨域等問題。
+
+    - SEO：由於 `getServerSideProps()` 是在 server side 執行，因此 server side render 出來的頁面是具有完整 HTML 內容的，對 SEO 較為友善。而在 client side 呼叫 API，需要先 render 出頁面，再透過 JavaScript 加載資料，對 SEO 不太友善。
+
+    總體來說，`getServerSideProps()` 在某些情況下比在 client side 呼叫 API 更有優勢，尤其是對於需要 SEO、效能和安全性的應用。
+</details>
+<details>
+  <summary><strong>Q: 如果說 `getServerSideProps()` 執行時機是在 client 觸發 request 執行，那 google 爬蟲也無法事先知道頁面內容，怎麼幫助 SEO ?</strong></summary>
+    A: <br />
+    <p>
+        當使用 getServerSideProps() 時，頁面的 HTML 內容確實是在 server side render 時生成的，而且只有在 client side request 時才會生成。
+        <strong>因此，當 Google 爬蟲訪問您的網站時，它不會看到與 client side request 時相同的 HTML 內容，這對於 SEO 不利。</strong>
+    </p>
+    <p>
+        為了解決這個問題，Next.js 提供了一個名為 getStaticProps() 的方法，它會在 build 時就生成 HTML 內容，並將其存儲在靜態文件中，這樣 Google 爬蟲訪問您的網站時就可以看到完整的 HTML 內容，從而提高 SEO。但是需要注意的是，<strong>getStaticProps() 只適用於靜態網頁或者是不需要每次都動態生成的頁面。</strong>
+    </p>
+    
+    如果您需要使用 getServerSideProps()，建議可以使用額外的技術來優化 SEO，例如使用<strong>動態 sitemap、robots.txt 等技術，從而讓 Google 爬蟲更好地理解您的網站。</strong>
+</details>
+
+- by ChatGPT
+:::
+
 ---
 ### `getStaticProps (SSG)` + `getStaticPaths (SSG)` 範例
 :::success getStaticProps()
@@ -215,7 +260,21 @@ Each page is associated with a route based on its file name.
 ![next_fallback_false](../../static/img/docs/next/next_fallback_false.png)
 
 ---
-### 
+### Incremental Static Regeneration (ISR)
+- ISR 是 Next.js 中的一個功能，**它可以在 build 時生成靜態 HTML 內容，並在下一個的 request 時進行更新。**
+- ISR 的目的是提**高靜態網頁的效能和即時性，而不需要經常重新 build 整個應用**。
+- 要啟用 ISR，需要在 `getStaticProps()` 或 `getServerSideProps()` 中返回一個額外的屬性 `revalidate`，以指定多長時間需要重新生成內容。
+- ISR 主要是為了 `getStaticProps()` 而設計的，但它也可以與 `getServerSideProps()` 一起使用。當使用 `getServerSideProps()` 時，Next.js 可以使用 ISR 來 cache 已經生成的 HTML 內容，並在下一次 request 時更新該內容，而不需要重新生成整個頁面。
+
+:::note
+When running locally with next dev, getStaticProps is invoked on every request. To verify your on-demand ISR configuration is correct, you will need to create a production build and start the production server.
+
+If there is an error inside getStaticProps when handling background regeneration, or you manually throw an error, the last successfully generated page will continue to show.
+
+- [Next.js 官網](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration#on-demand-revalidation)
+:::
+
+![getStaticProps with ISR](../../static/img/docs/next/next_getStaticProps_isr.png)
 
 ---
 ### 參考資源

@@ -6,10 +6,7 @@ tags:
 - Node.js
 ---
 
-
-# Node 錯誤訊息紀錄 與 解決方案
-### `node` Server Output 錯誤訊息：EADDRINUSE
-
+## `node` Server Output 錯誤訊息：EADDRINUSE
 ```node
   [server] node:events:342
   [server]       throw er; // Unhandled 'error' event
@@ -62,5 +59,33 @@ tags:
 ```
 - [補充：lsof](https://github.com/lsof-org/lsof)
 
----
 ## 參考資源
+
+---
+
+## 無法直接執行 `nodemon`
+```js
+  nodemon test/app.js
+```
+
+
+
+### 解法
+因為我是把 `nodemon` 載入在專案中(執行 `npm install nodempn --save-dev`)，而不是全域 (執行 `npm install -g nodemon`)。
+故我要透過 該專案的管理套件 script 來執行，如以下：
+
+```js
+  npx nodemon test/app.js
+```
+
+:::success
+With a local installation, nodemon will not be available in your system path or you can't use it directly from the command line. Instead, the local installation of nodemon can be run by calling it from within an npm script (such as `npm start`) or using `npx nodemon`.
+- [nodemon](https://www.npmjs.com/package/nodemon)
+:::
+
+:::note title="npm 與 npx 差別"
+- `npm` : 是一個 Node.js 套件管理工具，管理專案內的套件下載、版本等。
+- `npx` : 執行專案內的套件指令。(非全域的套件) 是 `npm` 下的一命令列工具。
+:::
+
+
