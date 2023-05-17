@@ -177,6 +177,20 @@ Each page is associated with a route based on its file name.
     
     如果您需要使用 getServerSideProps()，建議可以使用額外的技術來優化 SEO，例如使用<strong>動態 sitemap、robots.txt 等技術，從而讓 Google 爬蟲更好地理解您的網站。</strong>
 </details>
+<details>
+  <summary><strong>Q: `getServerSideProps()` 可以搭配 useState 使用嗎 ?</strong></summary>
+    A: 
+    可以。在使用 getServerSideProps 的情況下，因為每次請求都會執行該函數，所以您可以在該函數內使用 useState 來處理動態的狀態邏輯，例如處理使用者輸入、表單驗證等等。<strong>由於 getServerSideProps 在 server side 執行，每次請求都會重新執行，因此每次使用 useState 都會是一個新的初始狀態。</strong>如果您需要保留狀態，例如讓使用者在多個頁面間切換時維持某些狀態，則可以考慮使用其他狀態管理工具，例如 Redux 或 MobX。
+</details>
+<details>
+  <summary><strong>Q: 我需要再頁面上設置 `useEffect` 去偵測 `getServerSideProps` 傳值來更新資料嗎 ?</strong></summary>
+    A: 
+   不需要特別設置 useEffect 去偵測 getServerSideProps 的傳值來更新資料，因為在使用 getServerSideProps 的情況下，頁面的初始資料已經是由伺服器端提供，所以不需要透過 useEffect 或其他方式在客戶端重新渲染頁面。
+
+    當使用者首次載入頁面時，Next.js 會呼叫 getServerSideProps 來取得初始資料，並且將資料作為 props 傳遞給頁面。使用者在與頁面互動時，可以透過網路請求向伺服器端取得最新的資料，然後再透過客戶端渲染更新頁面。
+
+    簡單來說，使用 getServerSideProps 取得的資料已經是在伺服器端提前處理好的，所以不需要額外的客戶端渲染來更新資料。
+</details>
 
 - by ChatGPT
 :::
@@ -229,7 +243,7 @@ Each page is associated with a route based on its file name.
 
         return {
             props: {data: res},
-            revalidate: 10 // **** ? *****
+            revalidate: 10 // Next.js will send request every 10s.
         }
     }
 
@@ -258,6 +272,16 @@ Each page is associated with a route based on its file name.
 ![next_fallback_blocking](../../static/img/docs/next/next_fallback_blocking.png)
 ![next_fallback_true](../../static/img/docs/next/next_fallback_true.png)
 ![next_fallback_false](../../static/img/docs/next/next_fallback_false.png)
+
+:::note
+- In development (`next dev`), `getStaticPaths` will be called on every request.
+- `getStaticPaths` will only run during build in production, it will not be called during runtime.
+- `getStaticPaths` must be used with `getStaticProps`.
+- You can export `getStaticPaths` from a Dynamic Route that also uses getStaticProps
+- You cannot export `getStaticPaths` from non-page file (e.g. your components folder)
+
+- [Next 官網](https://nextjs.org/docs/basic-features/data-fetching/get-static-paths#when-does-getstaticpaths-run)
+:::
 
 ---
 ### Incremental Static Regeneration (ISR)
