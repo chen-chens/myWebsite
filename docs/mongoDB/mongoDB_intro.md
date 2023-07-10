@@ -11,6 +11,17 @@
 
 ![Back End Concept](../../static/img/docs/mongoDB/backEnd_overview.png)
 
+
+---
+## Database, Schema, Model, Collection, Document
+- Database: 相當於 Execl 的檔案名稱。
+- Schema: 定義文件的型別與驗證條件。
+- Model: 依據 Schema 產生的實例，對應到指定 Collection。用於 操作 CRUD 資料（Document）的方法。
+  - `mongoose.model("ModelName", <Schema>);`
+- Collection: 儲存 資料（Document）的 容器，相當於 Execl 的頁籤。
+- Document: 相當於 Execl 上輸入的一筆資料。
+
+
 ---
 
 ## 
