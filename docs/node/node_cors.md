@@ -7,7 +7,8 @@ tags:
 - cors
 ---
 
-# How to use `cors` to solve cross-origin problem ?
+
+## How to use `cors` to solve cross-origin problem ?
 
 
 :::note
@@ -20,7 +21,6 @@ Cross-Origin Resource Sharing (CORS) is a security protocol in modern browsers t
 
 
 ### `cors()` 預設內容
-
 ```js
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET,HEAD,PUT,PATCH,POST,DELETE
@@ -33,6 +33,3 @@ Cross-Origin Resource Sharing (CORS) is a security protocol in modern browsers t
 ---
 ## 參考資源
 - [NodeJS CORS Guide: What It Is and How to Enable It](https://www.stackhawk.com/blog/nodejs-cors-guide-what-it-is-and-how-to-enable-it/)
-- []()
-- []()
-- []()
