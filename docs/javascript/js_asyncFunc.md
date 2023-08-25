@@ -14,7 +14,7 @@ tags:
 
 ## Q: 為了解決什麼問題？
 ### 先來了解 Synchronous Code Execution
-- Javascript特性：執行項目是檔案由上往下，一個執行完才執行下一個（single thread: one-by-one）。
+- JavaScript特性：執行項目是檔案由上往下，一個執行完才執行下一個（single thread: one-by-one）。
 - 情境：使用者瀏覽網頁，點擊內容後向server要資料。在server回傳資料與渲然網頁之前，使用者無法執行其他操作，只能原地乾等。
     （使用者以為當機，但其實是在等待回傳資料）**(Blocking Code)**
 
@@ -224,7 +224,7 @@ ES7 有提出另一個 異步處理的方式，一起來看看：
 ## 參考資源
 - [淺淡 JS Engine 機制](https://medium.com/walkout/%E6%B7%BA%E6%B7%A1-js-engine-%E6%A9%9F%E5%88%B6-77391b4dd3db)
 - [影片中詳細解釋，JS runtime、block statck、Event Loop用途、render卡住變慢的原因](https://www.youtube.com/watch?time_continue=1607&v=8aGhZQkoFbQ&feature=emb_logo)
-- [setTimeout為什麼不準時？淺談JavaScript的event loop運作方式](https://chiangbao1999.medium.com/settimeout%E7%82%BA%E4%BB%80%E9%BA%BC%E4%B8%8D%E6%BA%96%E6%99%82-%E6%B7%BA%E8%AB%87javascript%E7%9A%84event-loop%E9%81%8B%E4%BD%9C%E6%96%B9%E5%BC%8F-3df1aeb4c032)
-- [[JavaScript] Javascript 的事件循環 (Event Loop)、事件佇列 (Event Queue)、事件堆疊 (Call Stack)：排隊](https://medium.com/itsems-frontend/javascript-event-loop-event-queue-call-stack-74a02fed5625)
+- [setTimeout為什麼不準時？淺談JavaScript的event loop運作方式](https://chiangbao1999.medium.com/settimeout%E7%82%BA%E4%BB%80%E9%BA%BC%E4%B8%8D%E6%BA%96%E6%99%82-%E6%B7%BA%E8%AB%87JavaScript%E7%9A%84event-loop%E9%81%8B%E4%BD%9C%E6%96%B9%E5%BC%8F-3df1aeb4c032)
+- [[JavaScript] JavaScript 的事件循環 (Event Loop)、事件佇列 (Event Queue)、事件堆疊 (Call Stack)：排隊](https://medium.com/itsems-frontend/JavaScript-event-loop-event-queue-call-stack-74a02fed5625)
 - [[第十六週] JavaScript 進階：事件迴圈 Event Loop、Stack、Queue](https://yakimhsu.com/project/project_w16_EventLoop.html)
 - [JavaScript Promise 全介紹](https://www.casper.tw/development/2020/02/16/all-new-promise/)
