@@ -427,8 +427,9 @@ sidebar_position: 3
   <summary><strong> 做法一：<code>git add --all</code> + <code>git reset HEAD^</code></strong></summary>
 
 - 不管三七二十一，把所有更新、刪除任何紀錄存到暫存區。
+- 加入 `git commit` 記錄一下。
 - `git checkout <要修bug 的分支>` 處理。
-- 處理完後，回來剛剛開發功能的分支，執行 `git reset HEAD^`，把存到暫存區的內容復原至工作區，繼續開發。
+- 處理完後，回來剛剛開發功能的分支，執行 `git reset HEAD^`，把存到commit的內容復原至工作區，繼續開發。
 
 ---
 
