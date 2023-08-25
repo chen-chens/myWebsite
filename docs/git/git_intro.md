@@ -130,7 +130,7 @@ sidebar_position: 1
   ```
 :::info
   **沒有問題，就可以上 remote。(push 上 GitHub 要再更改會有點麻煩，多做確認少麻煩!)**<br/>
-  [GitHub筆記連結](./GitHub_intro.md)
+  [GitHub筆記連結](./github_intro.md)
 :::
 
   回傳訊息：（部分內容在 local repository還沒有紀錄）
