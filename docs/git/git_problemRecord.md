@@ -8,7 +8,6 @@ sidebar_position: 3
 ## (一) 執行 `git add`，但是後悔想改
 - ** `git add` 只存在本地端，還沒 `push` 上遠端都好解決。**
 - ** 先來看 `git status` 有幾個情況：**
-
 ![git status](../../static/img/docs/git/git_gitProblemRecord_git_status.png)
 
 - ** 對應資料狀態與指令圖：**
@@ -40,8 +39,8 @@ sidebar_position: 3
 ```
 
 ```
-  git restore --staged <檔案名稱.副檔名>  // 將 暫存區指定檔案 回覆 到 工作目錄的狀態 （staged file => unstaged file）
-  git restore <檔案名稱.副檔名>           // 將 工作目錄的狀態 回覆 到 沒有更新內容的狀態 （unstaged file => discard changes in working directory剛修改的內容就掰掰了）
+  git restore --staged <檔案名稱.副檔名>  // 將 暫存區指定檔案 復原 到 工作目錄的狀態 （staged file => unstaged file）
+  git restore <檔案名稱.副檔名>           // 將 工作目錄的狀態 復原 到 沒有更新內容的狀態 （unstaged file => discard changes in working directory剛修改的內容就掰掰了）
 ```
 
 :::caution `git checkout` 有兩個意思
@@ -64,7 +63,7 @@ sidebar_position: 3
 
 </details>
 
-- 保留更新內容，狀態返回: 
+- 保留更新內容，狀態返回: `git reset`
 - 不保留更新內容，狀態返回: `git checkout`
 
 ---
@@ -196,7 +195,7 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>1. <code>git add .</code> : 將更新內容存到暫存</strong>
+    <strong>(4-1-1) <code>git add .</code> : 將更新內容存到暫存</strong>
   </summary>
 
   ```
@@ -206,7 +205,7 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>2. <code>git stash</code> : 將暫存文件 提交至 git 暫存區</strong>
+    <strong>(4-1-2) <code>git stash</code> : 將暫存文件 提交至 git 暫存區</strong>
   </summary>
 
   ```
@@ -216,7 +215,7 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>3. <code>git checkout 正確branch</code> : 切換至 正確分支</strong>
+    <strong>(4-1-3) <code>git checkout 正確branch</code> : 切換至 正確分支</strong>
   </summary>
 
   ```
@@ -227,7 +226,7 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>4. <code>git stash pop</code> : 將剛剛暫存在 git暫存區的內容 拿出來</strong>
+    <strong>(4-1-4) <code>git stash pop</code> : 將剛剛暫存在 git暫存區的內容 拿出來</strong>
   </summary>
 
   ```
@@ -245,7 +244,7 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>1. <code>git checkout 錯誤 branch</code> : 切換至 錯誤分支</strong>
+    <strong>(4-2-1) <code>git checkout 錯誤 branch</code> : 切換至 錯誤分支</strong>
   </summary>
 
   ```
@@ -260,7 +259,7 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>2. <code>git reset HEAD~1</code> : 錯誤分支 恢復 最後一次 commit 至 暫存區</strong>
+    <strong>(4-2-2) <code>git reset HEAD~1</code> : 錯誤分支 恢復 最後一次 commit 至 暫存區</strong>
   </summary>
 
   ```
@@ -282,7 +281,7 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>3. <code>git stash</code> : 將暫存文件 提交至 git 暫存區</strong>
+    <strong>(4-2-3) <code>git stash</code> : 將暫存文件 提交至 git 暫存區</strong>
   </summary>
 
   ```
@@ -297,7 +296,7 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>4. <code>git checkout 正確branch</code> : 切換至 正確分支</strong>
+    <strong>(4-2-4) <code>git checkout 正確branch</code> : 切換至 正確分支</strong>
   </summary>
 
   ```
@@ -313,7 +312,7 @@ sidebar_position: 3
 
 <details>
   <summary>
-    <strong>5. <code>git stash pop</code> : 將剛剛暫存在 git暫存區的內容 拿出來</strong>
+    <strong>(4-2-5) <code>git stash pop</code> : 將剛剛暫存在 git暫存區的內容 拿出來</strong>
   </summary>
 
   ```
@@ -350,11 +349,11 @@ sidebar_position: 3
   - 錯誤 `branch` : `test-file-viewer`
   - 更新內容存到 `test-file-viewer`，已 commit，已 push 至 遠端
 
-#### 將 上述 1 ~ 5 步驟執行一遍，另外加上：
+#### 將 上述 (4-2-1) ~ (4-2-5) 步驟執行一遍，另外加上：
 
 <details>
   <summary>
-    <strong>6. <code>git push origin 錯誤分支-f </code> : 強迫將 錯誤分支內容更新同本地端 (本地端已移除錯誤更新)</strong>
+    <strong>(4-2-6) <code>git push origin 錯誤分支-f </code> : 強迫將 錯誤分支內容更新同本地端 (本地端已移除錯誤更新)</strong>
   </summary>
 
   ```
@@ -366,25 +365,24 @@ sidebar_position: 3
 
 ## (五) `git reset`、`git revert`、`git rebase`、`git restore` 差在哪裡？
 
-|指令|官網敘述|用途|是否會新增commit|適用時機|如果反悔資料救得回來嘛|
+|指令|官網敘述|用途|是否會往前新增commit|適用時機|如果反悔資料救得回來嘛|
 |--|--|--|--|--|--|
-|`reset`|Reset current HEAD to the specified state|--|--|--|`reset`的三種模式都救得回來（`--mixed` `--soft` `--hard`）|
-|`rebase`|Reapply commits on top of another base tip|修正歷史紀錄|--|--|--|
-|`revert`|Revert some existing commits|復原至某版本|Ｏ|已放上遠端，而且與他人協作|--|--|
-|`restore`|Restore working tree files|--|--|--|--|
+|`reset`|Reset current HEAD to the specified state  |復原更新資料至指定commit id|Ｘ|暫存區 或 local repository|`reset`的三種模式都救得回來（`--mixed` `--soft` `--hard`）|
+|`rebase`|Reapply commits on top of another base tip|修正歷史紀錄、合併分支。|Ｏ|local repository|--|
+|`revert`|Revert some existing commits              |復原至某版本|Ｏ|已放上遠端，而且與他人協作|--|--|
+|`restore`|Restore working tree files               |復原更新資料至上一個狀態。|Ｘ|資料在暫存區或工作區時。|--|
 
 ---
- 
 
 ## (六) `git log`、`git reflog` 差在哪裡？
 
 <details>
   <summary><strong>git log</strong></summary>
 
-    ```
-        git log // 查看目前分支 commit 歷史紀錄：不包含其他分支、退回 commit 紀錄
-        q       // 跳出 git log
-    ```
+```
+    git log // 查看目前分支 commit 歷史紀錄：不包含其他分支、退回 commit 紀錄
+    q       // 跳出 git log
+```
 
 回傳訊息參考
 ![cmd 顯示 git log](../../static/img/docs/git/git_problemRecord_git_log_cmd.png)
@@ -404,28 +402,71 @@ sidebar_position: 3
 <details>
   <summary><strong> git reflog：只顯示 本地端</strong></summary>
 
-    ```
-        git reflog  // 查看
-        q           // 跳出 git log
-    ```
+```
+    git reflog  // 查看本地端分支提交、HEAD 移動位置，適用在我要復原內容的位置時查看
+    q           // 跳出 git log
+```
 
-    回傳訊息
-    ```
-        6996574 (HEAD -> master) HEAD@{0}: commit: [v0.1.2] - add Tech Docs/Git & Github/Github
-        f1206c6 (origin/master) HEAD@{1}: commit: [v0.1.1] - finish Tech Docs/Git & Github/Git
-        e6eb481 (test) HEAD@{2}: merge test: Fast-forward
-    ```
+回傳訊息
+```
+    6996574 (HEAD -> master) HEAD@{0}: commit: [v0.1.2] - add Tech Docs/Git & Github/Github
+    f1206c6 (origin/master) HEAD@{1}: commit: [v0.1.1] - finish Tech Docs/Git & Github/Git
+    e6eb481 (test) HEAD@{2}: merge test: Fast-forward
+```
 
 對應 Sourcetree 顯示
 ![source tree 顯示 git reflog](../../static/img/docs/git/git_problemRecord_git_reflog_sourceTree.png)
 
 </details>
 
-#### 整理一下
-|指令|用途|關鍵字|
-|--|--|--|
-|`git log`|--|--|
-|`git reflog`|--|--|
+---
+
+## (七) 目前開發進行到一半，突然要去修某個緊急的Bug，可以怎麼做？
+
+<details>
+  <summary><strong> 做法一：<code>git add --all</code> + <code>git reset HEAD^</code></strong></summary>
+
+- 不管三七二十一，把所有更新、刪除任何紀錄存到暫存區。
+- `git checkout <要修bug 的分支>` 處理。
+- 處理完後，回來剛剛開發功能的分支，執行 `git reset HEAD^`，把存到暫存區的內容復原至工作區，繼續開發。
+
+---
+
+#### `git add --all` 與 `git add .` 差別？
+
+|--             |相同                                   |相異                         |
+|--             |--                                    |--                           |
+|`git add --all`|將未建立追蹤、未更新至最新版本內容存至暫存區。|存檔範圍：根目錄到子目錄(子文件夾)|
+|`git add .`    |將未建立追蹤、未更新至最新版本內容存至暫存區。|存檔範圍：只有該子目錄(子文件夾)  |
+
+</details>
+
+<details>
+  <summary><strong> 做法二：<code>git stash</code> + <code>git pop stash id</code></strong></summary>
+
+- 執行 `git stash` 將 **已追蹤、未更新至最新版本內容**存起來。
+- 執行 `git stash -u` 將 **未追蹤最新內容**存起來。
+- `git checkout <要修bug 的分支>` 處理。
+- 處理完後，回來剛剛開發功能的分支，執行 `git stash list`
+
+```js
+git stash list
+stash@{0}: WIP on refactor: b174a5a fix some bug
+stash@{1}: WIP on refactor: b174a5a fix other bug
+```
+- 執行 `git stash pop stash@{0}` 將存起來的內容拿回來繼續做（git stash list 就沒有這個紀錄了）
+
+---
+#### `git stash` 指令用法差異：
+
+|指令                         |用途                    |資料還在 stash list|
+|--                          |--                      |--|
+|`git stash pop <指定stash>`  |資料從 stash list 拿出來。|X|
+|`git stash apply <指定stash>`|資料從 stash list 拿出來。|O|
+|`git stash drop <指定stash>` |資料從 stash list 移除。  |O|
+
+</details>
+
 
 ---
 
@@ -438,6 +479,7 @@ sidebar_position: 3
 
 ### 參考資源
 - [【狀況題】剛才的 Commit 後悔了，想要拆掉重做…](https://gitbook.tw/chapters/using-git/reset-commit)
+- [【狀況題】手邊的工作做到一半，臨時要切換到別的任務](https://gitbook.tw/chapters/faq/stash)
 - [檔案狀態](https://zlargon.gitbooks.io/git-tutorial/content/file/status.html)
 - [CLI Git 指令](https://pjchender.dev/app/cli-git/)
 - [Git 2.23 Adds Switch and Restore Commands](https://www.infoq.com/news/2019/08/git-2-23-switch-restore/)

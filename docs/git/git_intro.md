@@ -6,10 +6,10 @@ sidebar_position: 1
 *將更新的歷史紀錄留存起來，之後有需要都可以返回或參考。*
 ### 專案管理：版本控管。
   - Git: 本地端 (local)，方便個人使用。
-  - Github: (remote)，方便多人共享協作。
+  - GitHub: (remote)，方便多人共享協作。
 ### 常見指令圖
 ![常見指令圖](https://i.imgur.com/ey5mwYl.png)
-[參考圖片來源：Jenifer.Code.World - Git 入門 (一)：介紹和基本指令](https://jenifers001d.github.io/2019/11/24/Git/Git-intro-1/)
+[參考圖片來源：Jenifer.Code.World - Git 入門 (一)：介紹和基本指令](https://jenifers001d.GitHub.io/2019/11/24/Git/Git-intro-1/)
 
 ---
 ## Git 本機端專案管理的基本操作
@@ -72,7 +72,7 @@ sidebar_position: 1
     (use "git add <file>..." to update what will be committed)
     (use "git restore <file>..." to discard changes in working directory)
           modified:   docs/git/git_problemRecord.md
-          modified:   docs/git/github_intro.md
+          modified:   docs/git/GitHub_intro.md
 
   no changes added to commit (use "git add" and/or "git commit -a")
 
@@ -129,8 +129,8 @@ sidebar_position: 1
     nothing to commit, working tree clean
   ```
 :::info
-  **沒有問題，就可以上 remote。(push 上 github 要再更改會有點麻煩，多做確認少麻煩!)**<br/>
-  [Github筆記連結](./github_intro.md)
+  **沒有問題，就可以上 remote。(push 上 GitHub 要再更改會有點麻煩，多做確認少麻煩!)**<br/>
+  [GitHub筆記連結](./GitHub_intro.md)
 :::
 
   回傳訊息：（部分內容在 local repository還沒有紀錄）
@@ -152,9 +152,9 @@ sidebar_position: 1
   - 更新資料狀態: 
     1. `index.php`: 有索引紀錄，但沒有最新版本。
       - 如果要更新內容： `git add <file>`，更新索引，並 `commit` 做紀錄。
-      - 如果不要更新內容： `"git restore <file>`，忽略這次更新內容。（working area會回覆到原本索引位置）
+      - 如果不要更新內容： `git restore <file>`，忽略這次更新內容。（working area會回覆到原本索引位置）
     2. `textforgit.php`: 完全全新的資料，沒有索引紀錄。
-      - 如果要更新內容： `git add <file>`，更新索引，並 `commit` 做紀錄。
+      - 如果要更新內容： `git add <file>`，加入索引，並 `commit` 做紀錄。
       - 如果不要更新內容： 直接刪掉就好了。
 :::
 
@@ -225,6 +225,9 @@ sidebar_position: 1
   ![branch資料舊，master新](../../static/img/docs/git/git_branch_merge_master_01.png)
   ![branch資料更新同master最新索引](../../static/img/docs/git/git_branch_merge_master_02.png)
 
+:::success
+  #### [捕充：git merge 與 git rebase 差異](/myWebsite/docs/git/git_cooperation#git-merge-與-git-rebase-差異)
+:::
 
 ### 10-1. 合併衝突：
   #### 兩合併分支在資料相同位置同時做更新，就有可能產生衝突。
