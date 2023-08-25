@@ -47,7 +47,7 @@ sidebar_position: 2
 :::success 提醒一下
 要上傳資料之前，要先確認本地端資料已經存到 `local Repository`。<br/>
 也就是說：所有更新都執行完 `git add` 與 `git commit`<br/>
-[傳送Git指令圖](./git_intro.md#常見指令圖)
+[傳送Git指令圖](./git_intro.md#常見指令圖)
 :::
 ```
     git push 遠端空間的名稱 指定分支

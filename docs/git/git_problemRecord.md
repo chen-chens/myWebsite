@@ -5,7 +5,7 @@ sidebar_position: 3
 # 狀況題 與 其他
 *紀錄曾經的犯錯，還是有辦法重新來過。*
 
-## (一) 執行 `git add`，但是後悔想改
+## (一) 執行 `git add`(暫存區狀態)，但是後悔想改
 - ** `git add` 只存在本地端，還沒 `push` 上遠端都好解決。**
 - ** 先來看 `git status` 有幾個情況：**
 ![git status](../../static/img/docs/git/git_gitProblemRecord_git_status.png)
