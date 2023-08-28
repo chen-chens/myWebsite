@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 id: asyncFunc
-title: async Func.
+title: async concept & Promise
 tags:
 - stack
 - event loop
@@ -21,7 +21,7 @@ tags:
 ![js_synchronous_code_execution](../../static/img/docs/js/js_synchronous_code_execution.png)
 
 為了解決上述情境遇到的問題，我們可以使用 瀏覽器提供的 API，讓我們可以同一時間執行多樣動作。
-（當使用者點擊內容時，向server要資料要資料的動作躲在瀏覽器背景執行。 等待server回傳同時，使用者可以繼續瀏覽網頁，或點擊更多request）
+（當使用者點擊內容時，向server要資料的動作躲在瀏覽器背景執行。 等待server回傳同時，使用者可以繼續瀏覽網頁，或點擊更多request）
 
 ![js_api_concept](../../static/img/docs/js/js_api_concept.png)
 
@@ -36,7 +36,8 @@ web API 包含 DOM、HTTP request、setTimeout() ....
 ### Inside the JavaScript Engine - How the CodeExecutes (深究)
 ![Inside the JavaScript Engine - How the CodeExecutes](../../static/img/docs/js/js_js_engine_execute.png)
 
-### Call Api processure - queque & event loop (深究)
+
+### Call API processure - Callback Queque & Event loop (深究)
 #### Processure:
 1. parse code
 2. store in heap memory
@@ -46,6 +47,8 @@ web API 包含 DOM、HTTP request、setTimeout() ....
 6. event loop will check all functions are done in stack. When the stack is empty, moving async function to the stack.
 7. execute the callback function, and pop out(return to heap memory).
 8. done.
+
+#### 補充：Stack 執行順序是 後進先出，Callback Queue 執行順序是 先進新出。
 
 ![js_queueAndEventLoop](../../static/img/docs/js/js_queueAndEventLoop.png)[圖片來源](https://www.itread01.com/content/1544934003.html)
 
@@ -152,10 +155,6 @@ ___
         console.log(getTopPromiseByRes);
     }
 ```
-
-### 多層串接順序(待補)
-
-
 
 ---
 ## `async` `await`
