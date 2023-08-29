@@ -156,6 +156,40 @@ ___
     }
 ```
 
+:::success `fetch` 與 `axios` 都是來自 Promise 的用法
+
+```js
+fetch('https://chen-chens.github.io/myWebsite/')
+    .then((response) => {
+        return response.json(); // 要把回傳資料轉成: JSON
+    })
+    .then( (response) => {
+        console.log(response);
+    })
+    .catch((error) => {
+        console.log(`Error: ${error}`);
+    })
+```
+
+---
+
+```js
+axios.get('https://chen-chens.github.io/myWebsite/')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+
+```
+:::
+
 ---
 ## `async` `await`
 ES7 有提出另一個 異步處理的方式，一起來看看：

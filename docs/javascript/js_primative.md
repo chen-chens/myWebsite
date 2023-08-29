@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # 基礎型別(Primitives)
 
+*String、Number(NaN)、Boolean、null、undefined*
+
+---
+
 ### string: `""` `''` `` `${variable}` ``
 <details>
   <summary><strong>字串寫法</strong></summary>
@@ -65,7 +69,7 @@ template literal
 ```
 ---
 
-### number: 整數 (Integers)、浮點數(floats)、無限大 (± Infinity)、NaN (Not a Number)
+### Number: 整數 (Integers)、浮點數(floats)、無限大 (± Infinity)、NaN (Not a Number)
 
 <details>
   <summary><strong>整數(Integers)</strong></summary>
@@ -123,7 +127,7 @@ template literal
 
 ---
 
-### boolean
+### Boolean
 - `true` `false`
 - **truthy value**、**falsy value**
     使用 `Boolean()` 做判別:

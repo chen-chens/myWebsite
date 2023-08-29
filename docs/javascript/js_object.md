@@ -206,13 +206,13 @@ sidebar_position: 2
 
 ### Add / Remove Elements to Array
 
-|方法|用途|返回值|會更新作用對象|補充|
-|------|------|------|------|------|
-|`push(el1, el2...)`|新增(一個 或 多個)元素在陣列最後|加入元素後的陣列長度|Ｏ|------|
-|`unshift(el1, el2...)`|新增(一個 或 多個)元素在陣列最前|加入元素後的陣列長度|Ｏ|------|
-|`pop()`|刪除陣列內最後一個元素|被刪除的元素 或 `undefined`|Ｏ|------|
-|`shift()`|刪除陣列內第一個元素|被刪除的元素 或 `undefined`|Ｏ|------|
-|`splice(targetIndex, deleteCount, newItem1, newItem2,...)`|可在指定位置新增 或 刪除元素|包含刪除元素的陣列|Ｏ|------|
+|方法|用途|返回值|會更新作用對象|
+|------|------|------|------|
+|`push(el1, el2...)`|新增(一個 或 多個)元素在陣列最後|加入元素後的陣列長度|Ｏ|
+|`unshift(el1, el2...)`|新增(一個 或 多個)元素在陣列最前|加入元素後的陣列長度|Ｏ|
+|`pop()`|刪除陣列內最後一個元素|被刪除的元素 或 `undefined`|Ｏ|
+|`shift()`|刪除陣列內第一個元素|被刪除的元素 或 `undefined`|Ｏ|
+|`splice(targetIndex, deleteCount, newItem1, newItem2,...)`|可在指定位置新增 或 刪除元素|包含 刪除元素 與 新增元素 的陣列|Ｏ|
 
 <details>
   <summary>
@@ -296,33 +296,13 @@ sidebar_position: 2
 
 <details>
   <summary>
-    <strong><code>shift()</code></strong>
-  </summary>
-
-- 作用對象：陣列。
-- 更新對象：**true**
-- 作用：刪除陣列第一個元素。
-- 參數：無。
-- 回傳值：刪除的該元素 或 `undefined` (當作用對象為 `[]` )。
-    
-```js
-    const numbers = [12, 30, 54, 6, 7, 22, 4];
-
-    console.log(numbers.shift()); // 12
-    console.log(numbers);         // [30, 54, 6, 7, 22, 4]
-```
-
-</details>
-
-<details>
-  <summary>
     <strong><code>splice(targetIndex, deleteCount, newItem1, newItem2,...)</code></strong>
   </summary>
 
 - 作用對象：陣列。
 - 更新對象：**true**
-- 作用：可在指定位置 新增 或 刪除元素。
-- 回傳值：包含刪除元素的陣列。
+- 作用：可在指定位置新增 或 刪除元素。
+- 回傳值：包含 刪除元素 與 新增元素 的陣列。
 - 參數：
     - `targetIndex` : 指定起始作用元素，可為正數 或 負數。(`-1` 為最後一個，以此類推）
     - `deleteCount`*(optional)* : 刪除幾個元素。
@@ -348,13 +328,13 @@ sidebar_position: 2
 
 ### Shallow Copy Array
 
-|方法|用途|返回值|會更新作用對象|補充|
-|------|------|------|------|------|
-|`[...]`|將作用陣列內元素複製一份，放進新陣列內|新陣列，內容物同作用元素|X|------|
-|`map((curEl, index, targetArray) ⇒ {})`|依據作用陣列的每個元素，通過函式回傳值，包成新陣列|一新陣列，新陣列元素依 每個作用元素 通過 函式 的回傳值。|X|------|
-|`slice(startIndex, before endIndex)`|參考作用陣列內容，指定複製的元素|一新陣列，新陣列元素依指定順序|X|------|
-|`concat(item1, [item2, item3, ...])`|在作用陣列後方，合併**指定陣列內的元素**。(接收陣列或元素，但只會加入元素)|新陣列，包含多個合併內容|X|------|
-|`forEach((curEl, index, targetArray) ⇒ {})`|每一個作用元素都會經過函式，函式不會有回傳值|X(`undefined`)|X|------|
+|方法|用途|返回值|會更新作用對象|
+|------|------|------|------|
+|`[...]`|將作用陣列內元素複製一份，放進新陣列內|新陣列，內容物同作用元素|X|
+|`map((curEl, index, targetArray) ⇒ {})`|依據作用陣列的每個元素，通過函式回傳值，包成新陣列|一新陣列，新陣列元素依 每個作用元素 通過 函式 的回傳值。|X|
+|`slice(startIndex, before endIndex)`|參考作用陣列內容，指定複製的元素|一新陣列，新陣列元素依指定順序|X|
+|`concat(item1, [item2, item3, ...])`|在作用陣列後方，合併**指定陣列內的元素**。(接收陣列或元素，但只會加入元素)|新陣列，包含多個合併內容|X|
+|`forEach((curEl, index, targetArray) ⇒ {})`|每一個作用元素都會經過函式，函式不會有回傳值|X(`undefined`)|X|
 
 
 <details>
