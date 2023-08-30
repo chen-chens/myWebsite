@@ -9,6 +9,11 @@ tags:
 
 ## React Native 解決什麼問題？
 
+- 使用 React Native，可以直接寫 React，並且同時支援 iOS 與 Android 系統。
+
+---
+
+## 官網筆記
 
 - With React Native, you can invoke these views with JavaScript using React components. At runtime, React Native creates the corresponding Android and iOS views for those components. Because React Native components are backed by the same views as Android and iOS, React Native apps look, feel, and perform like any other apps. We call these platform-backed components Native Components.
 
@@ -37,6 +42,7 @@ tags:
     - Watchman is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 - Install CocoaPods by using `sudo gem install cocoapods`
     - CocoaPods is one of the dependency management system available for iOS. CocoaPods is a Ruby gem.
+- VS code 套件：https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
 
 <details>
   <summary>
@@ -136,6 +142,33 @@ source ~/.zshrc
 5. 確認 ruby 版本 與 rbenv 目前全域預設版本。
 
 </details>
+
+:::note 目前執行版本
+
+- Xcode (and Xcode Terminal Tool): 14.3.1
+
+
+
+:::
+
+---
+
+## 執行遇到的問題
+
+- 開發執行：`yarn start`
+- 執行 iOS 環境：`i`
+
+畫面會出現錯誤提示：**unable to boot device in current state: booted**
+
+解法：刪掉 Xcode 的 caches
+1. Click About this Mac
+2. Click Storage
+3. Click Developer
+4. Click XCode Caches & Delete
+
+[參考資源](https://stackoverflow.com/questions/72229589/flutter-xcode-error-unable-to-boot-the-simulator)
+
+---
 
 
 
