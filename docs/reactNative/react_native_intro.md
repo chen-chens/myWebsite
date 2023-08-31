@@ -170,7 +170,14 @@ source ~/.zshrc
 
 ---
 
+## 文章參考：
+#### 為何 React Native 升級頻繁，而且時常遇到衝突。
+這篇文章的圖文很清楚說明 React Native 的優點，同時也是致命缺點。
+[React Native 從頭學筆記2 — 基礎概念](https://medium.com/@wuufone/react-native-%E5%BE%9E%E9%A0%AD%E5%AD%B8%E7%AD%86%E8%A8%982-%E5%9F%BA%E7%A4%8E%E6%A6%82%E5%BF%B5-e632370bdfc1)
 
+
+
+---
 
 ## 參考資源
 

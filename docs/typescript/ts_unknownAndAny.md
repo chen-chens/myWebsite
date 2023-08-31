@@ -7,7 +7,7 @@ sidebar_position: 2
 |名稱      |接受任何型別|說明|
 |---------|----------|----|
 |`unknown`|Ｏ        |限制該型別使用的方法。需要先進行 `typeof`型別檢查，才能執行。<br/>(接收任一型別，但使用前要先限縮範圍)|
-|`any`    |Ｏ        |typescript 會直接跳過型別檢查，等於跟JS一樣。|
+|`any`    |Ｏ        |TypeScript 會直接跳過型別檢查，等於跟JS一樣。|
 
 ## unknow
 ### (一) 接受任何型別
@@ -87,7 +87,7 @@ sidebar_position: 2
     calc("Joanna"); // 6
 ```
 
-### [ ✎ DEMO](https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABBAhgGwgCgCYqigLkXAGsw4B3MAbQF0BKAbwFgAoRDxNAUykTG4UAInkJgQAWwBG3AE51EAXkR0A3GzadEufADpgcWQFEUEABaYYUbhKUA+RC3ZbOMYJigBPAA7c4wRCsbJUVlACJxaTkwxCZNFwSBYVFdbxAAZwsgiXp1ZwSAX3iOAvoNfMRZXhBZJCSRPSrsEAhuTEwUABpEKXp7RBQAailugAYy1iLWNggEdLgeXTQ4AHNMVAxMagBGUe7tgFZuxhhsIm3ulBXuIgAmUYKGXPKX6begA)
+### [ ✎ DEMO](https://www.typescriptlang.org/play?#code/GYVwdgxgLglg9mABBAhgGwgCgCYqigLkXAGsw4B3MAbQF0BKAbwFgAoRDxNAUykTG4UAInkJgQAWwBG3AE51EAXkR0A3GzadEufADpgcWQFEUEABaYYUbhKUA+RC3ZbOMYJigBPAA7c4wRCsbJUVlACJxaTkwxCZNFwSBYVFdbxAAZwsgiXp1ZwSAX3iOAvoNfMRZXhBZJCSRPSrsEAhuTEwUABpEKXp7RBQAailugAYy1iLWNggEdLgeXTQ4AHNMVAxMagBGUe7tgFZuxhhsIm3ulBXuIgAmUYKGXPKX6begA)
 
 ---
 

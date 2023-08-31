@@ -2,33 +2,43 @@
 sidebar_position: 3
 ---
 
-# scope And hoisting
-## scope
-### global scope
-- 全域變數（任何地方都可以取得或修改該變數）
-- global scope 的威力，以 `var` 舉例
+# Scope & Hoisting
+## Scope
+### Global Scope
+- 全域變數（任何地方都可以取得或修改該變數）: JS 世界指的是 `window` 頂層物件、全域物件（`Node.js` 指的是 `global`）。
+- Global scope 的威力，以 `var` 舉例
     - 可以在任何地方取值，包含 `if-else`
     ![js_var_feature_01](../../static/img/docs/js/js_var_feature_01.png)
     - `if-else`的判斷式也不管
     ![js_var_feature_02](../../static/img/docs/js/js_var_feature_02.png)
+    ![js_var_feature_03](../../static/img/docs/js/js_var_feature_03.png)
 
-### block scope
+### Function Scope
+- 在 ES6 之前，JavaScript 變數有效範圍的最小單位是以 function 做分界的。
+    - (前提是 var 在 function 內進行**宣告**，如果是賦值，結果會不一樣)。
+    ![js_var_feature_05](../../static/img/docs/js/js_var_feature_05.png)
+
+### Block Scope(ES6)
 - 以`{}`作為有效範圍，像是 function、`if-else`。
-- block scope 的威力，以 `let` 舉例
+- `let`、`const`。
+
+- `let` - block scope : function / loop / if statement (界線明確，有助於寫出 clean code)
     ![js_let_feature_01](../../static/img/docs/js/js_let_feature_01.png)
-- let - block scope : function / loop / if statement (界線明確，有助於寫出 clean code)
-    ![js_let_feature_02](../../static/img/docs/js/js_let_feature_02.png)
 
 ---
 
-## hoisting
-### `var` `let` `const` hoisting
+## Hoisting
+### `var` Hoisting
 - Hoisting is JavaScript's default behavior of moving declarations to the top.
 - 宣告變數在取值之後，JS會找到有效作用域內的宣告變數，把宣告的動作抬升至取值之前，但變數值留在原地。
+- `var` hoisting 特性**
+    ![js_var_feature_04](../../static/img/docs/js/js_var_feature_04.png)
 
-### function hoisting
+### function Hoisting
 - function hoisting 會將整個 function(包含執行動作)，都抬升至呼叫該function之前
-- funciton 無論寫在呼叫該function前或後，都不會影響函式執行。
+- ~~funciton 無論寫在呼叫該function前或後，都不會影響函式執行。~~
+    - 上面敘述不完全精確：
+    ![function Hoisting](../../static/img/docs/js/js_function_hoisting.png)
 
 :::info Shadowed Variables
 > 1. **It's not allowed co-existing same variable name in the same lavel or same scope.**
@@ -39,13 +49,13 @@ Secondly, it prevents inner scope to modify or reassign variables defined in the
 :::
 
 ---
-### `var` `let` `const`
+## 總結：`var` `let` `const`
 
-|變數宣告|scope       |說明                   |hoisting|補充 |
+|變數宣告|Scope       |說明                   |hoisting|補充 |
 |-------|------------|----------------------|----|----|
-|`var`  |global scope|定義變數，相同作用範圍內，可以重複宣告，變數也可以重新賦值| hoisted to the top of the block, and initialized.|缺點：<br />如果在程式碼中間不小心改到全域變數造成bug，要查錯會很困難。|
-|`let`  |block scope |定義變數，相同作用範圍內，**不可以**重複宣告，變數可以重新賦值| hoisted to the top of the block, but not initialized.(TDZ)|ES6。<br />使用 `let` 替代 `var`，後續維護查錯會容易許多。|
-|`const`|block scope |定義常數，變數值不能修改  | hoisted to the top of the block, but not initialized.(TDZ)|ES6。<br />常數宣告一定要賦值。|
+|`var`  |Global Scope 或 Function Scope|定義變數，相同作用範圍內，可以重複宣告，變數也可以重新賦值。| hoisted to the top of the block, and initialized.|缺點：<br />如果在程式碼中間不小心改到全域變數造成bug，要查錯會很困難。|
+|`let`  |Block Scope |定義變數，相同作用範圍內，**不可以**重複宣告，變數可以重新賦值。| hoisted to the top of the block, but not initialized.(TDZ)|ES6。<br />使用 `let` 替代 `var`，後續維護查錯會容易許多。|
+|`const`|Block Scope |定義常數，變數值不能修改。  | hoisted to the top of the block, but not initialized.(TDZ)|ES6。<br />常數宣告一定要賦值。|
 
 
 <details>
@@ -191,7 +201,7 @@ Uncaught SyntaxError: Identifier 'name' has already been declared
         return  number + num;
     }
 
-    console.log(add(30)); // 40
+    console.log(add(30)); // -170
     console.log("outer number:", number); // -200
 ```
 
@@ -212,13 +222,15 @@ Uncaught SyntaxError: Identifier 'name' has already been declared
     console.log("outer number:", number); 
 ```
 
+:::warning 錯誤顯示如下
+Uncaught ReferenceError: Cannot access 'number' before initialization
+:::
 </details>
 
 ---
 
 ## 參考資源
 - [hoisting from w3schools](https://www.w3schools.com/js/js_hoisting.asp)
-- [0 陷阱！0 誤解！8 天重新認識 JavaScript！](https://www.books.com.tw/products/0010832387)
 - [重新認識 JavaScript: Day 10 函式 Functions 的基本概念](https://ithelp.ithome.com.tw/articles/10191549c)
 
 ## 其他

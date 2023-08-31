@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 id: asyncFunc
-title: async concept & Promise
+title: Async concept & Promise
 tags:
 - stack
 - event loop

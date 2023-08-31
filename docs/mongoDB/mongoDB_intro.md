@@ -26,10 +26,10 @@
 
 ## 
 
-- `mongod`: 啟動 mongoDB 伺服器(服務)。
-- `mongosh`: mongo shell，使用指令的方式，對 mongoDB 資料庫進行存取管理。支援使用 JavaScript 編寫腳本，可以讓你更方便地處理和轉換數據。
+- `mongod`: 啟動 MongoDB 伺服器(服務)。
+- `mongosh`: mongo shell，使用指令的方式，對 MongoDB 資料庫進行存取管理。支援使用 JavaScript 編寫腳本，可以讓你更方便地處理和轉換數據。
 - `mongoose`: 是一個基於 Node.js 平台的 MongoDB ODM（Object Document Mapping），用於在 Node.js 中定義模型和處理 MongoDB 的操作。Mongoose 可以幫助你在 Node.js 中管理 MongoDB 資料庫。
-- `compass`: mongoDB GUI，可視化資料庫資料。
+- `compass`: MongoDB GUI，可視化資料庫資料。
 
 ---
 
@@ -53,7 +53,7 @@
 ---
 TBD
 
-```js title="req.url 並使用 GET 方法，回傳從 mongoDB 撈到的資料"
+```js title="req.url 並使用 GET 方法，回傳從 MongoDB 撈到的資料"
 
 app.get("/", async (req: Request, res: Response) => {
   const headers = {
