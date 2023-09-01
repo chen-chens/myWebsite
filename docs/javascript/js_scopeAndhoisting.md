@@ -5,7 +5,11 @@ sidebar_position: 3
 # Scope & Hoisting
 ## Scope
 ### Global Scope
-- 全域變數（任何地方都可以取得或修改該變數）: JS 世界指的是 `window` 頂層物件、全域物件（`Node.js` 指的是 `global`）。
+:::note
+Global = Not Inside a Function.
+:::
+
+- 全域物件(Global Object): JS 世界指的是 `window` 頂層物件（`Node.js` 指的是 `global`），我們可以在 Global Level 取得或修改該變數。
 - Global scope 的威力，以 `var` 舉例
     - 可以在任何地方取值，包含 `if-else`
     ![js_var_feature_01](../../static/img/docs/js/js_var_feature_01.png)

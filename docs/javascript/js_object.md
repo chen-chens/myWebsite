@@ -4,6 +4,7 @@ sidebar_position: 2
 
 # 物件型別(Object)
 ### *除了基礎型別以外的值都是物件，包含 function。*
+### *A collection of name value pairs.*
 
 ## object
 ### Q: 什麼是 物件？
@@ -334,7 +335,7 @@ sidebar_position: 2
 |`map((curEl, index, targetArray) ⇒ {})`|依據作用陣列的每個元素，通過函式回傳值，包成新陣列|一新陣列，新陣列元素依 每個作用元素 通過 函式 的回傳值。|X|
 |`slice(startIndex, before endIndex)`|參考作用陣列內容，指定複製的元素|一新陣列，新陣列元素依指定順序|X|
 |`concat(item1, [item2, item3, ...])`|在作用陣列後方，合併**指定陣列內的元素**。(接收陣列或元素，但只會加入元素)|新陣列，包含多個合併內容|X|
-|`forEach((curEl, index, targetArray) ⇒ {})`|每一個作用元素都會經過函式，函式不會有回傳值|X(`undefined`)|X|
+|`forEach((curEl, index, targetArray) ⇒ {})`|每一個作用元素都會經過函式，函式不會有回傳值|沒有回傳值(`undefined`)|X|
 
 
 <details>
@@ -560,15 +561,15 @@ sidebar_position: 2
 
 - 作用對象：陣列
 - 更新對象：**false**
-- 作用：從指定索引依序往下找尋 **「第一個」**符合 `===` 查詢的元素索引。
+- 作用：從指定索引依序往下找尋 **第一個**符合 `===` 查詢的元素索引。
 - 回傳值：有找到**第一個**對應元素，回傳該元素 index ; 若沒有找到，回傳 `-1`
 - 參數：
     - `searchElement` ：查詢的值
     - `startSearchIndex` : 指定第幾個元素(含)開始搜尋
 
 ```js
-    const nums = [1, 3, 5,6 ,7, 9];
-    const targetIndex = nums.indexOf(6, 2);  // 從 nums 第2個index開始往下找第一個符合值為3的元素，並返回該元素index。
+    const nums = [1, 3, 5, 6 ,7, 9];
+    const targetIndex = nums.indexOf(6, 2);  // 從 nums 第2個index開始往下找第一個符合值為6的元素，並返回該元素index。
 
     console.log(targetIndex); // 3   
 ```
