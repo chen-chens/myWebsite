@@ -235,6 +235,7 @@ sidebar_position: 3
 </details>
 
 #### 接續在正確分支執行動作。 
+![執行紀錄](../../static/img/docs/git/git_stash_records.png)
 
 
 ### 將更新commit存錯 `branch`，更新資料還沒有存到遠端
