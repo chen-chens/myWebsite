@@ -5,6 +5,7 @@ title: 什麼是 Preflight Request ?
 tags:
 - Node.js
 - Express.js
+- Preflight Request
 ---
 
 #### 前端在 Call API 時，明明只有向後端提出一次請求，但打開使用開發者工具查看 Network 執行紀錄時，有時候會發現有兩筆紀錄：
@@ -29,7 +30,7 @@ tags:
     - 不可以：回傳錯誤訊息。
 
 
-*延伸：網址的 Domain Name*
+*延伸：[網址的 Domain Name](/myWebsite/docs/record/record_URL_to_website#url-網址)*
 
 ---
 ## 什麼情況不會有 Preflight Request？

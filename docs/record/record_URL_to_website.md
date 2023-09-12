@@ -166,9 +166,10 @@
 - [Internet Service Provider (ISP)](https://www.lifewire.com/internet-service-provider-isp-2625924)
 :::
 
-:::note <h2>URL 網址</h2>
-![domain name](https://w3cschoool.com/public/file/SEO/what-is-domain1.png)<br />
-[圖片來源](https://w3cschoool.com/what-is-domain)
+:::note 
+### URL 網址
+![domain name](../../static/img/docs/record/record_url_parts.png)<br />
+[圖片來源](https://www.semrush.com/blog/top-level-domains/)
 
 |--|名稱|說明|其他|
 |---------------|--|---|---|
@@ -247,11 +248,11 @@
 ## 應用層 - Application
 - 功能：定義數據格式，並按照對應的格式解讀數據。（簡單說就是：將資料傳輸的方式按規範傳遞，確保資料溝通順暢。）
 
-|         |全名                                                |說明                                                                       |
-|---------|---------------------------------------------------|---------------------------------------------------------------------------|
-|`http(s)`|HyperText Transfer Protocol <br />(超文本傳輸協定)    |針對 www伺服器 與 本地瀏覽器 傳輸超媒體文件(ex. HTML 文件、`.png`...)的協定。      |
-|`SMTP`   |Simple Mail Transfer Protocol <br />(簡易郵件傳輸協定)|針對郵件傳遞資料的協定。                                                       |
-|`FTP`    |File Transfer Protocol <br />(檔案傳輸協定)           |針對檔案移動的協定。                                                          |
+|         |全名                                                |默認 Port|說明                                                                       |
+|---------|---------------------------------------------------|--|---------------------------------------------------------------------------|
+|`http(s)`|HyperText Transfer Protocol <br />(超文本傳輸協定)    |http -> 80 <br/> https -> 443|針對 www伺服器 與 本地瀏覽器 傳輸超媒體文件(ex. HTML 文件、`.png`...)的協定。|
+|`SMTP`   |Simple Mail Transfer Protocol <br />(簡易郵件傳輸協定)|25|針對郵件傳遞資料的協定。|
+|`FTP`    |File Transfer Protocol <br />(檔案傳輸協定)           |21|針對檔案移動的協定。|
 
 :::note
 ### `http(s)` 
