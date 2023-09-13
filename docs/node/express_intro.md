@@ -11,7 +11,6 @@ tags:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-@Response methods
 
 
 #### Javascript based.
@@ -280,9 +279,8 @@ Node vs Express
 #### 1. request object: 接收的內容
 #### 2. response object: 決定要回傳的內容
 #### 3. next funciton: 目前該 middleware 動作執行完畢，往下傳給下一個 middleware 
-  - req.params:
-  - req.body:
-  - req.query:
+
+*[詳細 Express Router筆記](/myWebsite/docs/node/express_router)*
 
 ---
 ### next function
