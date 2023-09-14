@@ -2,9 +2,6 @@
 # MongoDB Intro
 
 
-
----
-
 ## Back End Concept
 #### 後端撰寫 Server 應用程式，與 資料庫 互動，兩者 是分開的。
 - Server 要與 資料庫 互動，要先啟動資料庫。
@@ -20,34 +17,6 @@
   - `mongoose.model("ModelName", <Schema>);`
 - Collection: 儲存 資料（Document）的 容器，相當於 Execl 的頁籤。
 - Document: 相當於 Execl 上輸入的一筆資料。
-
-
----
-
-## 
-
-- `mongod`: 啟動 MongoDB 伺服器(服務)。
-- `mongosh`: mongo shell，使用指令的方式，對 MongoDB 資料庫進行存取管理。支援使用 JavaScript 編寫腳本，可以讓你更方便地處理和轉換數據。
-- `mongoose`: 是一個基於 Node.js 平台的 MongoDB ODM（Object Document Mapping），用於在 Node.js 中定義模型和處理 MongoDB 的操作。Mongoose 可以幫助你在 Node.js 中管理 MongoDB 資料庫。
-- `compass`: MongoDB GUI，可視化資料庫資料。
-
----
-
-## 常用指令
-
-|指令             |說明|--|--|
-|--              |--|--|--|
-|`show dbs`      |顯示資料庫有哪些內容。|--|--|
-|`use [資料庫名稱]`|如果原本就存在，移動到該資料庫。<br /> 如果沒有，新增一資料庫並移動到該位置。|--|--|
-|--               |--|--|--|
-
----
-
-- db.collections.insertOne()
-- db.collections.insertMany()
-- db.collections.updateOne()  // patch
-- db.collections.replaceOne() // put
-
 
 
 ---
