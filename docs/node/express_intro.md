@@ -352,11 +352,51 @@ Node vs Express
 ## 基礎配置
 
 ```js
+import cors from "cors";
+import dotenv from "dotenv";
+import express from "express";
+import morgan from "morgan";
 
+import corsConfigs from "./configs/corsConfig";
+import router from "./routes";
 
+// 引入環境變數
+dotenv.config();
+
+// 啟動 Web 應用程式:
+const app = express();
+
+// 啟動 morgan，紀錄後端接收與回傳資訊
+app.use(morgan("dev"));
+
+// 檢查 API 請求是否符合跨域設定
+app.use(cors(corsConfigs));
+
+// 載入解析 HTTP 資訊:
+app.use(express.urlencoded({ extended: true }));
+
+// HTTP 夾帶資訊轉成 JSON 格式
+app.use(express.json());
+
+// 引入路由配置
+app.use(router);
+
+// 處理錯誤訊息 middleware
+app.use((err, req, res) => {});
+
+export default app;
 ```
 
-
+---
+## `res.send()` 與 `res.json()` 的差別
+- [res.json()](https://expressjs.com/en/api.html#express.json)
+- [res.send()](https://expressjs.com/en/5x/api.html#res.send)
+  
+:::note
+  `res.send()` 會依據 傳入的型別，影響對應的 Content-Type。
+  - `res.send("Hi")`: 傳入字串，回傳 Content-Type 為 text/html。
+  - `res.send({name: "Joanna"})`: 傳入物件型別(Object/Array)，回傳 Content-Type 為 json 格式。
+:::
 
 ---
 ## 名詞補充

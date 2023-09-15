@@ -1,5 +1,5 @@
 ---
-  sidebar_position: 23
+  sidebar_position: 24
   id: record_jwt_verify
   title: Async or Sync jwt.verify() ?
   tags:

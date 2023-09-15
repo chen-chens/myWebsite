@@ -23,6 +23,18 @@ tags:
 |`cross-env`    |確保不同平台執行環境變數一致性。|[GitHub](https://github.com/kentcdodds/cross-env)|
 |--|--|--|
 
+#### 補充：Express 4 以上版本，有內建 `body-parser` 的功能。
+
+```js
+~~const bodyParser = require("body-parser");~~
+const express = require("express");
+const app = express();
+
+~~app.use(bodyParser.urlencoded({ extended: true }));~~
+app.use(express.urlencoded({ extended: true }));
+```
+
+ 
 ---
 
 ### TypeScript 配置

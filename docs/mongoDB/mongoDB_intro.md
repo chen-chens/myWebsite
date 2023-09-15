@@ -85,3 +85,10 @@ Member.create({
     console.log("寫入資料庫失敗！", err);
   });
 ```
+
+---
+
+TBD
+
+由套件 `Express-Generator` 自動產生一基本 MVC 架構 的 Server。(這個套件有獲得官方推薦)
+- [Express-Generator](https://ithelp.ithome.com.tw/articles/10191816)

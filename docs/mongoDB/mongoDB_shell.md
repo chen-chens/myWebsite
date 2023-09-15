@@ -6,9 +6,9 @@
 - `mongosh`: 啟動 MongoDB Shell。
     - mongo shell，使用指令的方式，對 MongoDB 資料庫進行存取管理。支援使用 JavaScript 編寫腳本，可以讓你更方便地處理和轉換數據。
 - `mongod`: 啟動 MongoDB 伺服器(服務)。
-
-- `mongoose`: 是一個基於 Node.js 平台的 MongoDB ODM（Object Document Mapping），用於在 Node.js 中定義模型和處理 MongoDB 的操作。Mongoose 可以幫助你在 Node.js 中管理 MongoDB 資料庫。
 - `compass`: MongoDB GUI，可視化資料庫資料。
+- `mongoose`: 是一個基於 Node.js 平台的 MongoDB ODM（Object Document Mapping），用於在 Node.js 中定義模型和處理 MongoDB 的操作。Mongoose 可以幫助你在 Node.js 中管理 MongoDB 資料庫。
+
 
 ---
 ## 常用指令
@@ -86,7 +86,7 @@ hotel>
   ```js title="Terminal"
     [
       {
-        _id: ObjectId("650160f3a4f5f79d14960c7c"),
+        _id: ObjectId("650160f3a4f5f79d14960c7c"), // SchemaTypes: mongoose.Types.ObjectId(); 
         name: '加大單人房',
         price: 2500,
         rating: 5
@@ -252,6 +252,12 @@ hotel>
       }
     ]
   ```
+
+- ### 查詢寫法的方法
+  - `.find().limit()`: 限制符合條件的回傳數量。
+  - `.find().count()`: 回傳符合結果的數量。
+  - `.find().sort({屬性: -1})`: 回傳符合條件的結果，排序新到舊。
+
 
 - ### 正規表達式寫法
   - 想查詢包含的關鍵字，而非完整寫出來屬性值的時候，可以使用正則表達式查詢。
