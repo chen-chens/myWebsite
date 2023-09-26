@@ -20,7 +20,11 @@ tags:
 |`cors`         |處理**跨域**資源共享，允许不同域(host)的 client-side 访问 server。|[GitHub](https://github.com/expressjs/cors)|
 |`uuid`         |提供 unique id 的小幫手。|[GitHub](https://github.com/uuidjs/uuid#readme)|
 |`crypto-js`    |加解密使用。|[GitHub](https://github.com/brix/crypto-js)|
+|`bcrypt.js`    |時常應用在處理密碼的情境，加解密密碼之外，還會加 salt 提高密碼安全性。|[GitHub](https://www.npmjs.com/package/bcrypt?activeTab=readme)|
 |`cross-env`    |確保不同平台執行環境變數一致性。|[GitHub](https://github.com/kentcdodds/cross-env)|
+|`validator.js` |可以用來檢查輸入的內容使用符合特定格式，像是檢查 email 格式。|[GitHub](https://www.npmjs.com/package/validator)|
+|--|--|--|
+|--|--|--|
 |--|--|--|
 
 #### 補充：Express 4 以上版本，有內建 `body-parser` 的功能。
@@ -52,6 +56,6 @@ app.use(express.urlencoded({ extended: true }));
 
 ---
 
-### Eslint/Prettier 配置
+### Eslint/Prettier 
 
 

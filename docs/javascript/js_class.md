@@ -359,3 +359,8 @@ const dessert1 = new DoughnutA("鮪魚口味", 100, 10);
 console.log(dessert1.name); // 鮪魚口味
 console.log(dessert1.water); // 100
 ```
+
+--- 
+
+## 參考資源：
+- [Bro Code: JavaScript classes](https://www.youtube.com/watch?v=bHSjfXJBKaY&list=PLZPZq0r_RZOMRMjHB_IEBjOW_ufr00yG1&index=53)

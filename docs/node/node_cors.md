@@ -114,3 +114,4 @@ export default corsOptions;
 ---
 ## 參考資源
 - [NodeJS CORS Guide: What It Is and How to Enable It](https://www.stackhawk.com/blog/nodejs-cors-guide-what-it-is-and-how-to-enable-it/)
+- [DAY06 - API串接常見問題 - CORS - 解決CORS問題篇](https://ithelp.ithome.com.tw/m/articles/10268821)
